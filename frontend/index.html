@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- Favicons BLINDA PHONE -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/branding/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/branding/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/branding/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/branding/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/branding/android-chrome-512x512.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <title>IRON FORCE - Blinda Phone | Aplicador Oficial</title>
+    <meta name="description" content="Seja um aplicador oficial do IRON FORCE. Fórmula exclusiva, 100 aplicações por frasco, suporte completo. Transforme seu tempo em dinheiro." />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/branding/android-chrome-192x192.png">
+    
+    <!-- iOS PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Blinda Phone">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- iOS Splash Screen -->
+    <link rel="apple-touch-startup-image" href="/branding/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- PWA Install Prompt -->
+    <script>
+      // Detectar se é iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      
+      // Adicionar classe para iOS
+      if (isIOS) {
+        document.documentElement.classList.add('ios-device');
+      }
+      
+      // Detectar se está em modo standalone (PWA instalado)
+      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+        document.documentElement.classList.add('pwa-standalone');
+      }
+    </script>
+    
+    <script type="module" crossorigin src="/src/main.jsx"></script>
+    <link rel="stylesheet" crossorigin href="/src/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- PWA Install Banner -->
+    <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+      <div class="pwa-banner-content">
+        <div class="pwa-banner-text">
+          <strong>Instalar Blinda Phone</strong>
+          <span>Acesse rapidamente da sua tela inicial</span>
+        </div>
+        <div class="pwa-banner-actions">
+          <button id="pwa-install-btn" class="pwa-install-btn">Instalar</button>
+          <button id="pwa-dismiss-btn" class="pwa-dismiss-btn">Agora não</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

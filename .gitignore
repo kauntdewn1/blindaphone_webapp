@@ -1,0 +1,76 @@
+# 🔥 Firebase Admin SDK
+/Users/nettomello/CODIGOS/blindaphone_webapp/firebase-adminsdk.json
+
+# ⚙️ Node & NPM
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🔥 Firebase build
+firebase-debug.log
+.firebaserc
+.firebase/
+
+# 📦 Build do Vite (React frontend)
+frontend/dist/
+frontend/node_modules/
+frontend/.vite/
+
+# 🔒 Variáveis de ambiente
+.env
+.env.local
+.env.development
+.env.production
+env.example
+
+# 🧠 IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 🪟 Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# ⚙️ Firebase Functions (backend)
+functions/node_modules/
+functions/lib/
+functions/.env
+
+# 📂 Logs
+*.log
+
+# 🚫 Admin HTML - arquivos sensíveis
+admin/.env
+admin/node_modules/
+
+# 🧪 Testes e temp
+coverage/
+temp/
+
+# 🔐 Arquivos de configuração sensíveis
+firebase-adminsdk.json
+serviceAccountKey.json
+*.key
+*.pem
+
+# 📱 Builds e distribuições
+dist/
+build/
+*.tgz
+*.tar.gz
+
+# 🗂️ Arquivos temporários
+*.tmp
+*.temp
+.cache/
+
+# 📊 Relatórios
+coverage/
+.nyc_output/
+
+# 🔍 Arquivos de debug
+.debug/
+debug.log 

@@ -1,0 +1,197 @@
+/* 🎯 BLINDA PHONE - Estilos da Landing Page IRON FORCE */
+
+/* Estilos base da landing page */
+.iron-force-landing {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.video-container {
+  position: relative;
+}
+
+.video-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.play-button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  color: #E6BF00;
+}
+
+/* Headline principal */
+.headline {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões e CTAs */
+.btn-primary {
+  box-shadow: 0 4px 15px rgba(255, 212, 0, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(255, 212, 0, 0.4);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 4px 15px rgba(255, 212, 0, 0.3);
+}
+
+/* Cards e seções */
+.card-primary {
+  transition: all 0.3s ease;
+  border-left: 4px solid #FFD400;
+}
+
+.card-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Tabela de comparação */
+.comparison-table {
+  overflow-x: auto;
+}
+
+.comparison-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+/* Formulário */
+.form-container input:focus {
+  outline: none;
+  border-color: #FFD400;
+  box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1);
+}
+
+/* Seções alternadas */
+.section-dark {
+  border-top: 4px solid #FFD400;
+}
+
+.section-light {
+  background-color: #1F1F1F;
+}
+
+/* Footer */
+footer {
+  border-top: 4px solid #FFD400;
+}
+
+/* CTA Flutuante */
+.floating-cta {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 212, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 212, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 212, 0, 0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+  
+  .headline {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .comparison-table {
+    font-size: 0.875rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero,
+.comparison,
+.business-model,
+.find-or-register,
+.kit-contents,
+.guarantee-exclusivity,
+footer {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Estados de hover e focus */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #FFD400;
+  outline-offset: 2px;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary,
+  .card-primary,
+  .floating-cta {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Estilos para modo escuro (já aplicado por padrão) */
+@media (prefers-color-scheme: dark) {
+  .iron-force-landing {
+    color-scheme: dark;
+  }
+}
