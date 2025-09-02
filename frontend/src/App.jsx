@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import PWAInstallBanner from './components/PWAInstallBanner'
 import PWAUpdatePrompt from './components/PWAUpdatePrompt'
 // import PWAStatus from './components/PWAStatus' // Comentado para não atrapalhar
 import BottomTabBar from './components/BottomTabBar'
@@ -59,7 +58,7 @@ function App() {
             {/* 🚀 HERO SECTION - Design Futurista de Quiosque */}
             <section className="hero-section" style={{
               minHeight: '100vh',
-              background: 'var(--kiosk-gradient-surface)',
+              background: 'var(--kiosk-gradient-dark)',
               position: 'relative',
               overflow: 'hidden',
               display: 'flex',
@@ -110,7 +109,7 @@ function App() {
                 <div className="max-w-7xl mx-auto text-center">
                   
                   {/* 🎯 Logo e Branding */}
-                  <div className="mb-16">
+                  <div className="mb-10">
                     {/* Logo principal da empresa */}
                     <div style={{
                       margin: '0 auto 24px',
@@ -150,7 +149,9 @@ function App() {
                       marginBottom: '8px',
                       textAlign: 'center'
                     }}>
-                      REVOLUÇÃO NA BLINDAGEM
+                      <span style={{ color: 'white' }}>Blindagem para celulares com resultados reais.</span>
+                      <br /><br />
+                      Uma boa oportunidade de renda. <br />com investimento baixo.
                     </p>
                     
                     {/* Linha decorativa */}
@@ -165,7 +166,7 @@ function App() {
                   </div>
 
                   {/* 🎥 VSL Container Moderno */}
-                  <div className="mb-16">
+                  <div className="mb-10">
                     <div style={{
                       maxWidth: '600px',
                       margin: '0 auto',
@@ -244,7 +245,7 @@ function App() {
                   </div>
 
                   {/* 🧠 Headline Principal */}
-                  <div className="mb-16">
+                  <div className="mb-10">
                     <h2 style={{
                       fontSize: 'clamp(1.5rem, 6vw, 3rem)',
                       fontWeight: '800',
@@ -255,10 +256,10 @@ function App() {
                       margin: '0 auto 24px',
                       textShadow: '0 0 30px rgba(0, 102, 255, 0.5)'
                     }}>
-                      Com um frasco você muda o mês.
-                      <br />
-                      <span style={{ color: 'var(--kiosk-accent)' }}>
-                        Com uma aplicação, você muda sua rotina.
+                      3 aplicações/dia.<br /> Ticket R$ 150–550. 
+                      <br /><br />
+                      <span style={{ marginTop: '10px', color: 'var(--kiosk-accent)' }}>
+                      Produto técnico + mentoria. 
                       </span>
                     </h2>
                     
@@ -269,13 +270,13 @@ function App() {
                       maxWidth: '600px',
                       margin: '0 auto 32px'
                     }}>
+                      Vagas limitadas por cidade. 
                       Junte-se à primeira rede de blindagem com padrão técnico no Brasil. 
-                      Fórmula exclusiva, 100 aplicações por frasco e suporte completo.
                     </p>
                   </div>
 
                   {/* 🚀 CTA Principal */}
-                  <div className="mb-16">
+                  <div className="mb-10">
                     <button 
                       onClick={() => setShowForm(true)}
                       style={{
@@ -304,17 +305,17 @@ function App() {
                         e.target.style.boxShadow = 'var(--kiosk-glow)'
                       }}
                     >
-                      QUERO SER APLICADOR OFICIAL
+                      Conhecer a tecnologia
                     </button>
                   </div>
 
                   {/* ✅ Garantias Premium */}
-                  <div className="mb-16">
-                    <h3 className="ios-text-title text-center mb-6">SUAS ESTATÍSTICAS</h3>
+                  <div className="mb-10">
+
                     <div className="ios-grid-2">
                       {[
-                        { icon: '📊', title: 'Total Aplicações', value: '100', desc: 'Por frasco garantido', status: 'success' },
-                        { icon: '⚡', title: 'Tempo Secagem', value: '30min', desc: 'Muito mais rápido', status: 'info' }
+                        { icon: '⧖', title: 'Total Aplicações', value: '100', desc: 'Por frasco garantido', status: 'success' },
+                        { icon: '◵', title: 'Tempo Secagem', value: '30min', desc: 'Muito mais rápido', status: 'warning' }
                       ].map((item, index) => (
                         <div key={index} className="ios-compact-card text-center">
                           <div style={{
@@ -338,7 +339,7 @@ function App() {
                   </div>
 
                   {/* 🎯 Produto Principal */}
-                  <div className="mb-16">
+                    <div className="mb-10">
                     <div style={{
                       background: 'var(--kiosk-gradient-card)',
                       backdropFilter: 'var(--kiosk-backdrop)',
@@ -374,20 +375,30 @@ function App() {
                       </h3>
                       
                       <div style={{
-                        width: '200px',
-                        height: '200px',
+                        width: '150px',
+                        height: '150px',
                         margin: '0 auto 24px',
-                        position: 'relative'
+                        position: 'relative',
+                        overflow: 'hidden',
+                        borderRadius: '30px'
                       }}>
                         <img 
                           src="/images/IRON.png" 
                           alt="IRON FORCE - Blindagem de Celular" 
                           style={{
-                            width: '100%',
-                            height: '100%',
+                            width: '120%',
+                            height: '120%',
                             objectFit: 'contain',
-                            borderRadius: '16px',
-                            boxShadow: 'var(--kiosk-shadow-hover)'
+                            borderRadius: '30px',
+                            boxShadow: 'var(--kiosk-shadow-hover)',
+                            transform: 'scale(1.5)',
+                            transition: 'transform 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.transform = 'scale(1.3)'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.transform = 'scale(1.2)'
                           }}
                         />
                         {/* Efeito de brilho na imagem */}
@@ -409,7 +420,7 @@ function App() {
                         marginBottom: '16px',
                         fontWeight: '600'
                       }}>
-                        Fórmula exclusiva de blindagem base
+                        Nanotecnologia. <br />Até 100 aplicações.<br /> Margem alta.
                       </p>
                       
                       <div style={{
@@ -458,19 +469,19 @@ function App() {
               </div>
 
               {/* CSS para animações */}
-              <style jsx>{`
+              {/* <style jsx>{`
                 @keyframes float {
                   0%, 100% { transform: translateY(0px) rotate(0deg); }
                   50% { transform: translateY(-20px) rotate(180deg); }
                 }
-              `}</style>
+              `}</style> */}
             </section>
 
             {/* 🧪 COMPARATIVO - Design Moderno */}
             <section className="section-light" style={{ background: 'var(--kiosk-dark)', paddingBottom: '120px' }}>
               <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="ios-text-title text-center mb-8">
+                  <h2 className="color-white text-center mb-8">
                     Por que o IRON FORCE é diferente?
                   </h2>
 
@@ -478,7 +489,7 @@ function App() {
                   <div className="ios-compact-card mb-8">
                     <div className="ios-grid-2">
                       <div>
-                        <h3 className="ios-text-large mb-4" style={{ color: 'var(--kiosk-accent)' }}>CONCORRENTES</h3>
+                        <h3 className="ios-text-large mb-4" style={{ color: 'white' }}>CONCORRENTES</h3>
                         <div className="space-y-3">
                           {[
                             { label: 'Tempo de secagem', value: '1h+', status: 'warning' },
@@ -494,9 +505,9 @@ function App() {
                           ))}
                         </div>
                       </div>
-                      
+                          
                       <div>
-                        <h3 className="ios-text-large mb-4" style={{ color: 'var(--kiosk-secondary)' }}>IRON FORCE</h3>
+                        <h3 className="ios-text-large mb-4" style={{ color: 'var(--kiosk-accent)' }}>IRON FORCE</h3>
                         <div className="space-y-3">
                           {[
                             { label: 'Tempo de secagem', value: '30 minutos', status: 'success' },
@@ -534,35 +545,30 @@ function App() {
                   </h2>
 
                   {/* Etapas */}
-                  <div className="ios-grid-3 mb-8">
+                  <div className="ios-grid-3 mb-10">
                     <div className="ios-compact-card text-center">
-                      <div className="ios-text-title mb-3" style={{ color: 'var(--kiosk-accent)' }}>1</div>
-                      <p className="ios-text-medium">Compre seu frasco IRON FORCE (R$350)</p>
+                      <div className="ios-text-medium mb-3" style={{ color: 'var(--kiosk-accent)' }}>1</div>
+                      <p className="ios-text-title">Peça seu frasco IRON FORCE</p>
                     </div>
                     <div className="ios-compact-card text-center">
-                      <div className="ios-text-title mb-3" style={{ color: 'var(--kiosk-accent)' }}>2</div>
-                      <p className="ios-text-medium">Aplique com a técnica oficial (treinamento incluso)</p>
+                      <div className="ios-text-medium mb-3" style={{ color: 'var(--kiosk-accent)' }}>2</div>
+                      <p className="ios-text-title">Aplique com a técnica oficial</p>
                     </div>
                     <div className="ios-compact-card text-center">
-                      <div className="ios-text-title mb-3" style={{ color: 'var(--kiosk-accent)' }}>3</div>
-                      <p className="ios-text-medium">Lucre até R$350 por dia com apenas 3 aplicações</p>
+                      <div className="ios-text-medium mb-3" style={{ color: 'var(--kiosk-accent)' }}>3</div>
+                      <p className="ios-text-title">Acesse o grupo exclusivo</p>
                     </div>
                     <div className="ios-compact-card text-center">
-                      <div className="ios-text-title mb-3" style={{ color: 'var(--kiosk-accent)' }}>4</div>
-                      <p className="ios-text-medium">Acesse o grupo exclusivo e receba atualizações + estratégias</p>
+                      <div className="ios-text-medium mb-3" style={{ color: 'var(--kiosk-accent)' }}>4</div>
+                      <p className="ios-text-title">Lucre até R$350 por dia</p>
                     </div>
                   </div>
 
                   {/* 💬 Testemunho */}
-                  <div className="ios-compact-card max-w-2xl mx-auto" style={{
-                    border: '1px solid var(--kiosk-secondary)',
-                    boxShadow: 'var(--kiosk-neon)'
-                  }}>
-                    <p className="ios-text-large text-blindaphone-white italic mb-4">
+                    <p className="ios-text-medium text-blindaphone-white italic mb-30">
                       "Nunca tinha vendido nada, em 1 semana já recuperei meu investimento e ainda fechei parceria com uma assistência."
                     </p>
-                    <p className="ios-text-medium" style={{ color: 'var(--kiosk-accent)' }}>— Amanda, aplicadora em Goiânia</p>
-                  </div>
+                    <p className="ios-text-medium" style={{ color: 'var(--kiosk-accent)' }}>Júnior | aplicador em Goiânia</p>
                 </div>
               </div>
             </section>
@@ -571,47 +577,133 @@ function App() {
 
       case 'about':
         return (
-          <section className="hero bg-blindaphone-black text-blindaphone-white py-20">
+          <section className="hero bg-blindaphone-black text-blindaphone-white py-20" style={{ background: 'var(--kiosk-dark)', paddingBottom: '120px' }}>
             <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto text-center">
-                <h1 className="text-5xl md:text-6xl font-bold mb-12 text-blindaphone-yellow">
+              <div className="max-w-6xl mx-auto text-center">
+                <h1 className="text-5xl md:text-6xl font-bold mb-12 color-white">
                   QUEM SOMOS
                 </h1>
-                
-                <div className="kiosk-card mb-12">
-                  <h2 className="text-3xl font-bold mb-8 text-blindaphone-yellow">
-                    A REVOLUÇÃO DA BLINDAGEM
+
+                {/* 🎯 História Inspiradora */}
+                <div className="kiosk-card mb-16" style={{
+                  border: '2px solid var(--kiosk-accent)',
+                  boxShadow: '0 0 30px rgba(255, 215, 0, 0.3)'
+                }}>
+                  <h2 className="text-3xl font-bold mb-8 text-blindaphone-yellow" style={{ color: 'var(--kiosk-accent)' }}>
+                    A HISTÓRIA POR TRÁS DA REVOLUÇÃO
                   </h2>
+                  
+                  <div className="text-center mb-8">
+                    <div style={{
+                      width: '120px',
+                      height: '120px',
+                      margin: '0 auto 20px',
+                      background: 'var(--kiosk-gradient-primary)',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '48px',
+                      color: 'white',
+                      boxShadow: 'var(--kiosk-neon)'
+                    }}>
+                      👨‍💼
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--kiosk-secondary)' }}>
+                      OLIVER - O VISIONÁRIO
+                    </h3>
+                    <p className="text-lg text-blindaphone-white mb-4" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                      Fundador e CEO do BLINDAPHONE
+                    </p>
+                  </div>
+
                   <p className="text-xl text-blindaphone-white leading-relaxed mb-8">
-                    O BLINDA PHONE nasceu da necessidade de transformar o mercado de blindagem de celulares. 
-                    Não somos apenas mais uma empresa - somos a primeira rede de blindagem com padrão técnico no Brasil.
+                    <strong>Oliver não é apenas mais um empreendedor.</strong> Ele é alguém que <span style={{ color: 'var(--kiosk-accent)' }}>sentiu na pele</span> a necessidade de transformar o mercado de blindagem de celulares.
                   </p>
+                  
+                  <p className="text-lg text-blindaphone-white leading-relaxed mb-8">
+                    Como muitos de vocês, ele começou do zero. Sem recursos, sem rede de contatos, mas com uma <span style={{ color: 'var(--kiosk-secondary)' }}>determinação inabalável</span> e a certeza de que existia uma forma melhor de fazer as coisas.
+                  </p>
+
+                  <div className="ios-compact-card max-w-3xl mx-auto mb-8" style={{
+                    background: 'rgba(0, 102, 255, 0.1)',
+                    border: '1px solid var(--kiosk-primary)'
+                  }}>
+                    <p className="text-lg text-blindaphone-white italic mb-4">
+                      <span style={{ color: 'var(--kiosk-accent)' }}>"Eu mesmo tive que acreditar todos os dias, mesmo quando ninguém mais acreditava. Sei exatamente como é estar no seu lugar."</span>
+                    </p>
+                    <p className="text-md" style={{ color: 'var(--kiosk-secondary)' }}>
+                      — Oliver, Fundador do BLINDAPHONE
+                    </p>
+                  </div>
+
                   <p className="text-lg text-blindaphone-white leading-relaxed">
-                    Nossa missão é capacitar aplicadores para oferecer um serviço premium, 
-                    usando tecnologia de ponta e suporte completo para garantir o sucesso de cada profissional.
+                    Foi essa <span style={{ color: 'var(--kiosk-accent)' }}>experiência pessoal</span> que o levou a criar não apenas uma empresa, mas uma <span style={{ color: 'var(--kiosk-secondary)' }}>comunidade de sonhadores</span> que, como ele, querem transformar suas vidas através da blindagem.
                   </p>
                 </div>
 
+                {/* 🚀 Missão, Visão e Valores */}
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
                   <div className="kiosk-card text-center">
-                    <div className="text-6xl mb-4">🎯</div>
-                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3">Missão</h3>
+                    <div className="text-6xl mb-4">⍟</div>
+                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3" style={{ color: 'var(--kiosk-accent)' }}>Missão</h3>
                     <p className="text-blindaphone-white">
-                      Democratizar a blindagem premium e capacitar aplicadores para o sucesso
+                      <strong>Democratizar a blindagem premium</strong> e capacitar aplicadores para o sucesso, criando uma rede de profissionais que <span style={{ color: 'var(--kiosk-secondary)' }}>acreditam no sonho</span> e transformam vidas.
                     </p>
                   </div>
                   <div className="kiosk-card text-center">
-                    <div className="text-6xl mb-4">👁️</div>
-                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3">Visão</h3>
+                    <div className="text-6xl mb-4">⧉</div>
+                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3" style={{ color: 'var(--kiosk-accent)' }}>Visão</h3>
                     <p className="text-blindaphone-white">
-                      Ser a referência em blindagem de celulares no Brasil e América Latina
+                      Ser a <strong>referência absoluta</strong> em blindagem de celulares no Brasil, construindo a maior <span style={{ color: 'var(--kiosk-secondary)' }}>comunidade de aplicadores</span> do mundo.
                     </p>
                   </div>
                   <div className="kiosk-card text-center">
-                    <div className="text-6xl mb-4">💎</div>
-                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3">Valores</h3>
+                    <div className="text-6xl mb-4">⟁</div>
+                    <h3 className="text-xl font-bold text-blindaphone-yellow mb-3" style={{ color: 'var(--kiosk-accent)' }}>Valores</h3>
                     <p className="text-blindaphone-white">
-                      Qualidade, inovação, suporte e parceria com nossos aplicadores
+                      <strong>Qualidade inquestionável</strong>, inovação constante, suporte incondicional e <span style={{ color: 'var(--kiosk-secondary)' }}>parceria real</span> com nossos aplicadores.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 💪 Por que acreditar */}
+                <div className="ios-compact-card max-w-4xl mx-auto" style={{
+                  background: 'var(--kiosk-gradient-card)',
+                  border: '2px solid var(--kiosk-accent)',
+                  boxShadow: 'var(--kiosk-glow)'
+                }}>
+                  <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--kiosk-accent)' }}>
+                    POR QUE VOCÊ DEVE ACREDITAR?
+                  </h3>
+                  
+                  <div className="ios-grid-2 text-left">
+                    <div>
+                      <h4 className="ios-text-large mb-3" style={{ color: 'var(--kiosk-secondary)' }}>⟠  EU SEI O QUE É:</h4>
+                      <ul className="space-y-2">
+                        <li className="ios-text-small">• Começar do zero</li>
+                        <li className="ios-text-small">• Não ter recursos</li>
+                        <li className="ios-text-small">• Precisar acreditar</li>
+                        <li className="ios-text-small">• Falhar e recomeçar</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="ios-text-large mb-3" style={{ color: 'var(--kiosk-accent)' }}>⟠ ME DEDICO:</h4>
+                      <ul className="space-y-2">
+                        <li className="ios-text-small">• Fórmula exclusiva IRON FORCE</li>
+                        <li className="ios-text-small">• Comunidade ativa</li>
+                        <li className="ios-text-small">• Suporte 24/7</li>
+                        <li className="ios-text-small">• Resultados reais</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="text-center mt-8">
+                    <p className="ios-text-large text-blindaphone-white mb-4">
+                      <strong>Se eu consegui, você também consegue.</strong>
+                    </p>
+                    <p className="ios-text-medium" style={{ color: 'var(--kiosk-secondary)' }}>
+                      Junte-se à comunidade que <span style={{ color: 'var(--kiosk-accent)' }}>acredita no seu potencial</span> e te apoia todos os dias.
                     </p>
                   </div>
                 </div>
@@ -755,7 +847,7 @@ function App() {
             <section className="section-dark" style={{ background: 'var(--kiosk-surface)', paddingBottom: '120px' }}>
               <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto text-center">
-                  <h2 className="ios-text-title mb-8">
+                  <h2 className="mb-8 color-white">
                     O que você recebe com o kit IRON FORCE?
                   </h2>
 
@@ -844,62 +936,273 @@ function App() {
 
       case 'contact':
         return (
-          <section className="hero bg-blindaphone-black text-blindaphone-white py-20">
+          <section className="py-16" style={{ 
+            background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+            paddingBottom: '120px'
+          }}>
             <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto text-center">
-                <h1 className="text-5xl md:text-6xl font-bold mb-12 text-blindaphone-yellow">
-                  CONTATO
-                </h1>
+              <div className="max-w-2xl mx-auto">
                 
-                <div className="grid md:grid-cols-2 gap-12 mb-12">
-                  <div className="kiosk-card text-center">
-                    <div className="text-6xl mb-6">📱</div>
-                    <h3 className="text-2xl font-bold text-blindaphone-yellow mb-4">WhatsApp Oficial</h3>
-                    <p className="text-blindaphone-white mb-4">
-                      Atendimento direto para aplicadores e clientes
-                    </p>
-                    <a 
-                      href="https://wa.me/5511999999999" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="kiosk-button inline-block"
-                    >
-                      ABRIR WHATSAPP
-                    </a>
+                {/* Logo BLINDAPHONE */}
+                <div className="text-center mb-12" style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%'
+                }}>
+                  <img 
+                    src="/BLINDAPHONE-PRETO.png" 
+                    alt="BLINDA PHONE - Logo Oficial" 
+                    style={{
+                      height: '80px',
+                      width: 'auto',
+                      maxWidth: '300px',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1)) brightness(0)',
+                      transition: 'all 0.3s ease',
+                      display: 'block',
+                      margin: '0 auto'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.filter = 'drop-shadow(0 6px 20px rgba(0, 0, 0, 0.15)) brightness(0)'
+                      e.target.style.transform = 'scale(1.02)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.filter = 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1)) brightness(0)'
+                      e.target.style.transform = 'scale(1)'
+                    }}
+                  />
+                </div>
+                
+                {/* Header iOS-like */}
+                <div className="text-center mb-12">
+                  <div style={{
+                    width: '30px',
+                    height: '30px',
+                    margin: '0 auto 20px',
+                    background: 'linear-gradient(135deg,rgb(255, 204, 0) 0%,rgb(255, 230, 129) 100%)',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '36px',
+                    color: 'white',
+                    boxShadow: '0 8px 25px rgba(0, 122, 255, 0.3)'
+                  }}>
+                    📞
                   </div>
+                  <h1 className="text-3xl font-bold mb-3" style={{ color: '#1d1d1f' }}>
+                    Fale Conosco
+                  </h1>
+                  <p className="text-lg" style={{ color: '#86868b' }}>
+                    Estamos aqui para te ajudar a transformar sua vida
+                  </p>
+                </div>
+
+                {/* Cards de contato iOS-like */}
+                <div className="space-y-6 mb-12">
                   
-                  <div className="kiosk-card text-center">
-                    <div className="text-6xl mb-6">📧</div>
-                    <h3 className="text-2xl font-bold text-blindaphone-yellow mb-4">E-mail</h3>
-                    <p className="text-blindaphone-white mb-4">
-                      Para parcerias e informações comerciais
-                    </p>
-                    <a 
-                      href="mailto:contato@blindaphone.com" 
-                      className="kiosk-button inline-block"
-                    >
-                      ENVIAR E-MAIL
-                    </a>
+                  {/* WhatsApp */}
+                  <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: '20px',
+                    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+                    border: '1px solid rgba(0, 0, 0, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.12)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)'
+                  }}>
+                    <div style={{
+                      width: '18px',
+                      height: '58px',
+                      background: 'rgb(255, 204, 0)',
+                      borderRadius: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '34px',
+                      color: 'white'
+                    }}>
+                      💬
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-1" style={{ color: '#1d1d1f' }}>
+                        WhatsApp Oficial
+                      </h3>
+                      <p className="text-sm" style={{ color: '#86868b' }}>
+                        Resposta em até 2 horas
+                      </p>
+                    </div>
+                    <div style={{
+                      color: '#007AFF',
+                      fontSize: '20px'
+                    }}>
+                      →
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: '20px',
+                    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+                    border: '1px solid rgba(0, 0, 0, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.12)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)'
+                  }}>
+                    <div style={{
+                      width: '18px',
+                      height: '58px',
+                      background: 'linear-gradient(135deg,rgb(255, 204, 0) 0%,rgb(255, 230, 129) 100%)',
+                      borderRadius: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '34px',
+                      color: 'white'
+                    }}>
+                      📧
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-1" style={{ color: '#1d1d1f' }}>
+                        Email
+                      </h3>
+                      <p className="text-sm" style={{ color: '#86868b' }}>
+                        contato@blindaphone.com
+                      </p>
+                    </div>
+                    <div style={{
+                      color: '#007AFF ',
+                      fontSize: '20px'
+                    }}>
+                      →
+                    </div>
+                  </div>
+
+                  {/* Instagram */}
+                  <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: '20px',
+                    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+                    border: '1px solid rgba(0, 0, 0, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.12)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)'
+                  }}>
+                    <div style={{
+                      width: '18px',
+                      height: '58px',
+                      background: 'linear-gradient(135deg,rgb(255, 204, 0) 0%,rgb(255, 230, 129) 100%)',
+                      borderRadius: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '44px',
+                      color: 'white'
+                    }}>
+                      📱
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-1" style={{ color: '#1d1d1f' }}>
+                        Instagram
+                      </h3>
+                      <p className="text-sm" style={{ color: '#86868b' }}>
+                        @blindaphone_oficial
+                      </p>
+                    </div>
+                    <div style={{
+                      color: '#007AFF',
+                      fontSize: '20px'
+                    }}>
+                      →
+                    </div>
                   </div>
                 </div>
 
-                <div className="kiosk-card">
-                  <h3 className="text-2xl font-bold text-blindaphone-yellow mb-6">HORÁRIO DE ATENDIMENTO</h3>
-                  <div className="grid md:grid-cols-2 gap-8 text-left">
+                {/* Informações adicionais */}
+                <div style={{
+                  background: 'white',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                  textAlign: 'center'
+                }}>
+                  <h3 className="font-semibold mb-4" style={{ color: '#1d1d1f' }}>
+                    Horário de Atendimento
+                  </h3>
+                  <div className="ios-grid-2 gap-4 mb-6">
                     <div>
-                      <h4 className="text-xl font-bold text-blindaphone-yellow mb-4">Segunda a Sexta</h4>
-                      <p className="text-blindaphone-white">8h às 18h</p>
+                      <p className="text-sm font-medium" style={{ color: '#86868b' }}>Segunda a Sexta</p>
+                      <p className="text-lg font-semibold" style={{ color: '#1d1d1f' }}>8h às 18h</p>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-blindaphone-yellow mb-4">Sábados</h4>
-                      <p className="text-blindaphone-white">8h às 12h</p>
+                      <p className="text-sm font-medium" style={{ color: '#86868b' }}>Sábados</p>
+                      <p className="text-lg font-semibold" style={{ color: '#1d1d1f' }}>9h às 14h</p>
                     </div>
                   </div>
+                  <p className="text-sm" style={{ color: '#86868b' }}>
+                    <strong>WhatsApp:</strong> Resposta prioritária para aplicadores oficiais
+                  </p>
                 </div>
+
+                {/* CTA final */}
+                <div className="text-center mt-8">
+                  <button 
+                    className="px-8 py-4 rounded-2xl font-semibold text-white transition-all duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, #007AFF 0%, #5856D6 100%)',
+                      boxShadow: '0 8px 25px rgba(0, 122, 255, 0.3)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'translateY(-2px)'
+                      e.target.style.boxShadow = '0 12px 35px rgba(0, 122, 255, 0.4)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'translateY(0)'
+                      e.target.style.boxShadow = '0 8px 25px rgba(0, 122, 255, 0.3)'
+                    }}>
+                  QUERO SER APLICADOR OFICIAL
+                </button>
               </div>
             </div>
-          </section>
-        )
+          </div>
+        </section>
+      )
 
       default:
         return null
@@ -907,52 +1210,20 @@ function App() {
   }
 
   return (
-    <div className="iron-force-landing font-primary">
-      {/* PWA Components */}
-      {/* <PWAInstallBanner /> */}
-      <PWAUpdatePrompt />
-      {/* PWAStatus removido para não atrapalhar a visualização */}
-      
-      {/* Conteúdo principal baseado na aba ativa */}
-      {renderContent()}
-      
-      {/* Menu inferior */}
-      <BottomTabBar 
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
-      
-      {/* 🚀 CTA FLUTUANTE - Apenas na aba home */}
-      {/* {activeTab === 'home' && (
-        <div
-          className="fixed bottom-32 right-6 z-50"
-          style={{
-            background: 'var(--kiosk-gradient-primary)',
-            borderRadius: '50%',
-            width: '80px',
-            height: '80px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            boxShadow: 'var(--kiosk-neon)',
-            transition: 'all 0.4s ease',
-            animation: 'pulse 2s infinite ease-in-out'
-          }}
-          onClick={() => setShowForm(true)}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.1)'
-            e.target.style.boxShadow = 'var(--kiosk-shadow-hover)'
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1)'
-            e.target.style.boxShadow = 'var(--kiosk-neon)'
-          }}
-        >
-          <span style={{ fontSize: '32px', color: 'white' }}>📱</span>
-        </div>
-      )} */}
-    </div>
+    <>
+      <div className="iron-force-landing font-primary">
+        {/* PWA Components */}
+        {/* <PWAInstallBanner /> */}
+        <PWAUpdatePrompt />
+        {/* PWAStatus removido para não atrapalhar a visualização */}
+
+        {/* Conteúdo principal baseado na aba ativa */}
+        {renderContent()}
+      </div>
+
+      {/* 🎯 Bottom Tab Bar - SEMPRE FIXO NA TELA */}
+      <BottomTabBar activeTab={activeTab} onTabChange={handleTabChange} />
+    </>
   )
 }
 
