@@ -1,28 +1,29 @@
-const functions = require("firebase-functions");
+// Netlify/Express adapter replacing Firebase Functions
 const express = require("express");
 const cors = require("cors");
-const admin = require("firebase-admin");
+const { pool, ensureSchema } = require('./db');
 
-admin.initializeApp();
-const db = admin.firestore();
 const app = express();
-
 app.use(cors({ origin: true }));
 app.use(express.json());
+
+// Healthcheck
+app.get('/health', (req, res) => res.json({ ok: true }));
+
+// Ensure schema on cold start
+ensureSchema().catch((e) => console.error('Schema init error:', e));
 
 // POST - Cadastrar aplicador
 app.post("/aplicador", async (req, res) => {
   try {
-    const data = req.body;
-    const docRef = await db.collection("aplicadores").add({
-      ...data,
-      createdAt: admin.firestore.FieldValue.serverTimestamp()
-    });
-    
-    res.status(200).send({ 
-      msg: "Aplicador cadastrado com sucesso",
-      id: docRef.id 
-    });
+    const { nome, email, cidade, telefone } = req.body || {};
+    const { rows } = await pool.query(
+      `INSERT INTO aplicadores (nome, email, cidade, telefone)
+       VALUES ($1, $2, $3, $4)
+       RETURNING id, nome, email, cidade, telefone, created_at`,
+      [nome || null, email || null, cidade || null, telefone || null]
+    );
+    res.status(201).json(rows[0]);
   } catch (error) {
     console.error("Erro ao cadastrar aplicador:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
@@ -33,17 +34,12 @@ app.post("/aplicador", async (req, res) => {
 app.get("/cidade/:nome", async (req, res) => {
   try {
     const cidade = req.params.nome;
-    const snapshot = await db
-      .collection("aplicadores")
-      .where("cidade", "==", cidade)
-      .get();
-    
-    const result = snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-    
-    res.status(200).json(result);
+    const { rows } = await pool.query(
+      `SELECT id, nome, email, cidade, telefone, created_at, updated_at
+       FROM aplicadores WHERE cidade = $1 ORDER BY created_at DESC`,
+      [cidade]
+    );
+    res.status(200).json(rows);
   } catch (error) {
     console.error("Erro ao buscar por cidade:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
@@ -53,13 +49,11 @@ app.get("/cidade/:nome", async (req, res) => {
 // GET - Listar todos os aplicadores
 app.get("/aplicadores", async (req, res) => {
   try {
-    const snapshot = await db.collection("aplicadores").get();
-    const result = snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-    
-    res.status(200).json(result);
+    const { rows } = await pool.query(
+      `SELECT id, nome, email, cidade, telefone, created_at, updated_at
+       FROM aplicadores ORDER BY created_at DESC`
+    );
+    res.status(200).json(rows);
   } catch (error) {
     console.error("Erro ao listar aplicadores:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
@@ -69,16 +63,14 @@ app.get("/aplicadores", async (req, res) => {
 // GET - Buscar aplicador por ID
 app.get("/aplicador/:id", async (req, res) => {
   try {
-    const doc = await db.collection("aplicadores").doc(req.params.id).get();
-    
-    if (!doc.exists) {
-      return res.status(404).send({ error: "Aplicador não encontrado" });
-    }
-    
-    res.status(200).json({
-      id: doc.id,
-      ...doc.data()
-    });
+    const { id } = req.params;
+    const { rows } = await pool.query(
+      `SELECT id, nome, email, cidade, telefone, created_at, updated_at
+       FROM aplicadores WHERE id = $1`,
+      [id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Aplicador não encontrado' });
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error("Erro ao buscar aplicador:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
@@ -88,13 +80,21 @@ app.get("/aplicador/:id", async (req, res) => {
 // PUT - Atualizar aplicador
 app.put("/aplicador/:id", async (req, res) => {
   try {
-    const data = req.body;
-    await db.collection("aplicadores").doc(req.params.id).update({
-      ...data,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp()
-    });
-    
-    res.status(200).send({ msg: "Aplicador atualizado com sucesso" });
+    const { id } = req.params;
+    const { nome, email, cidade, telefone } = req.body || {};
+    const { rowCount, rows } = await pool.query(
+      `UPDATE aplicadores SET
+         nome = COALESCE($2, nome),
+         email = COALESCE($3, email),
+         cidade = COALESCE($4, cidade),
+         telefone = COALESCE($5, telefone),
+         updated_at = NOW()
+       WHERE id = $1
+       RETURNING id, nome, email, cidade, telefone, created_at, updated_at`,
+      [id, nome || null, email || null, cidade || null, telefone || null]
+    );
+    if (!rowCount) return res.status(404).json({ error: 'Aplicador não encontrado' });
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error("Erro ao atualizar aplicador:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
@@ -104,12 +104,19 @@ app.put("/aplicador/:id", async (req, res) => {
 // DELETE - Deletar aplicador
 app.delete("/aplicador/:id", async (req, res) => {
   try {
-    await db.collection("aplicadores").doc(req.params.id).delete();
-    res.status(200).send({ msg: "Aplicador deletado com sucesso" });
+    const { id } = req.params;
+    const { rowCount } = await pool.query(
+      `DELETE FROM aplicadores WHERE id = $1`,
+      [id]
+    );
+    if (!rowCount) return res.status(404).json({ error: 'Aplicador não encontrado' });
+    res.status(200).json({ msg: "Aplicador deletado com sucesso" });
   } catch (error) {
     console.error("Erro ao deletar aplicador:", error);
     res.status(500).send({ error: "Erro interno do servidor" });
   }
 });
 
-exports.api = functions.https.onRequest(app); 
+// Netlify handler adapter
+const serverless = require("serverless-http");
+module.exports = serverless(app);

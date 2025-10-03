@@ -1,0 +1,73 @@
+{
+    "structure": [
+      "Problema",
+      "Solução técnica",
+      "Ecossistema",
+      "Oportunidade de renda",
+      "Oferta",
+      "Exclusividade",
+      "CTA"
+    ],
+    "ctas": [
+      "Quero ser o aplicador oficial da minha cidade",
+      "Quero meu frasco e acesso ao grupo agora",
+      "Começar a blindar hoje",
+      "Garantir minha credencial de aplicador"
+    ],
+    "ads": {
+      "meta": {
+        "primary": "≤125 caracteres",
+        "headline": "≤40 caracteres",
+        "description": "≤30 caracteres"
+      },
+      "google": {
+        "headline": "≤30 caracteres",
+        "description": "≤90 caracteres"
+      },
+      "youtube_bumper": "≤6 segundos",
+      "tiktok_hooks": [
+        "R$ 347 para entrar com produto técnico?",
+        "3 aplicações por dia: entenda a conta.",
+        "Por que a sua blindagem escorre?",
+        "O erro que me fez repensar tudo.",
+        "Aplicador oficial: como funciona."
+      ],
+      "whatsapp": {
+        "steps": [
+          "Abertura fria",
+          "Qualificação",
+          "Oferta",
+          "Fechamento"
+        ],
+        "follow_up": "D+1 lembrete de disponibilidade"
+      }
+    },
+    "faq": [
+      {
+        "q": "É película?",
+        "a": "Não. É nanotecnologia líquida com cura em até 30 min."
+      },
+      {
+        "q": "Rende quanto?",
+        "a": "Até 100 aplicações por frasco, seguindo o protocolo."
+      },
+      {
+        "q": "Preço por aplicação?",
+        "a": "Menos de R$ 3,50 no rendimento máximo."
+      },
+      {
+        "q": "Preciso de loja?",
+        "a": "Não. Pode atender via agenda enxuta e WhatsApp."
+      },
+      {
+        "q": "Tem suporte?",
+        "a": "Sim. Suporte diário, mentoria prática e grupo exclusivo."
+      },
+      {
+        "q": "Exclusividade?",
+        "a": "1 aplicador oficial por cidade, sujeito à disponibilidade."
+      }
+    ],
+    "disclaimer": "Resultados variam conforme preço praticado, volume de atendimento e execução correta do método. Tempo de cura de até 30 minutos depende de condições de aplicação. Rendimento de até 100 aplicações por frasco no protocolo recomendado. Exclusividade limitada a 1 aplicador por cidade, sujeita à disponibilidade e aprovação."
+  }
+  

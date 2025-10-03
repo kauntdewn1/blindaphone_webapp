@@ -1,72 +1,12 @@
-// Configuração do Firebase - Configuração estática para admin
-const firebaseConfig = {
-  apiKey: "sua-api-key",
-  authDomain: "blindaphoneoficial.firebaseapp.com",
-  projectId: "blindaphoneoficial",
-  storageBucket: "blindaphoneoficial.appspot.com",
-  messagingSenderId: "seu-sender-id",
-  appId: "seu-app-id"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-// Verificar se o usuário está logado
-auth.onAuthStateChanged(function(user) {
-  if (user) {
-    // Usuário logado, mostrar dashboard
-    showDashboard();
-  } else {
-    // Usuário não logado, mostrar login
-    showLogin();
-  }
-});
+// Admin app - Netlify Functions backend
+// TODO: integrar Netlify Identity/Clerk/Auth0. Login desativado por enquanto.
+showDashboard();
 
 // Função de login
-function login() {
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
-  const errorMessage = document.getElementById('error-message');
-  
-  if (!email || !senha) {
-    errorMessage.textContent = 'Por favor, preencha todos os campos';
-    return;
-  }
-  
-  auth.signInWithEmailAndPassword(email, senha)
-    .then((userCredential) => {
-      // Login bem-sucedido
-      errorMessage.textContent = '';
-    })
-    .catch((error) => {
-      // Erro no login
-      let errorMsg = 'Erro no login';
-      switch (error.code) {
-        case 'auth/user-not-found':
-          errorMsg = 'Usuário não encontrado';
-          break;
-        case 'auth/wrong-password':
-          errorMsg = 'Senha incorreta';
-          break;
-        case 'auth/invalid-email':
-          errorMsg = 'Email inválido';
-          break;
-      }
-      errorMessage.textContent = errorMsg;
-    });
-}
+function login() { /* placeholder */ }
 
 // Função de logout
-function logout() {
-  auth.signOut()
-    .then(() => {
-      // Logout realizado com sucesso
-    })
-    .catch((error) => {
-      // Erro no logout - silencioso
-    });
-}
+function logout() { /* placeholder */ }
 
 // Mostrar página de login
 function showLogin() {
@@ -148,10 +88,10 @@ function showDashboard() {
   loadAplicadores();
 }
 
-// Carregar aplicadores do Firestore
+// Carregar aplicadores da API Netlify
 async function loadAplicadores() {
   try {
-    const response = await fetch('https://us-central1-blindaphoneoficial.cloudfunctions.net/api/aplicadores');
+    const response = await fetch('/api/aplicadores');
     const aplicadores = await response.json();
     
     updateDashboardStats(aplicadores);
@@ -206,7 +146,7 @@ async function deleteAplicador(id) {
   }
   
   try {
-    const response = await fetch(`https://us-central1-blindaphoneoficial.cloudfunctions.net/api/aplicador/${id}`, {
+    const response = await fetch(`/api/aplicador/${id}`, {
       method: 'DELETE'
     });
     

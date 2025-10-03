@@ -1,6 +1,6 @@
 /**
  * API Vercel - Gerenciamento de Aplicadores
- * Substitui completamente as Firebase Functions
+ * Substitui completamente as Netlify Functions
  * 
  * @fileoverview Endpoint para CRUD de aplicadores BlindaPhone
  * @version 1.0.0

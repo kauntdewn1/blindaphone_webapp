@@ -1,0 +1,49 @@
+{
+  "agent": "BLINDAPHONE",
+  "identity": {
+    "nature": "Produto-marca do ecossistema NEØ",
+    "positioning": "Artefato técnico + manifesto de branding",
+    "tone": "Direto, confiante, profissional",
+    "principle": "Sem hype vazio. Sempre fundamentado em técnica, performance e suporte."
+  },
+  "problem": [
+    "Produtos ruins que escorrem",
+    "Tempo de cura lento (até 1h)",
+    "Rendimento baixo (40–60 aplicações)",
+    "Ausência de suporte pós-compra"
+  ],
+  "solution": {
+    "technology": "Nanotecnologia",
+    "cure_time": "Até 30 minutos",
+    "applications": "Até 100 aplicações por frasco",
+    "method": "Aplicação limpa, sem escorrer entre botões"
+  },
+  "ecosystem": {
+    "support": "Suporte diário",
+    "community": "Grupo exclusivo de aplicadores",
+    "mentoring": "Mentoria prática",
+    "positioning": "Ecossistema técnico e lucrativo"
+  },
+  "business": {
+    "model": "3 aplicações/dia → até R$ 35 mil/mês",
+    "price": "R$ 347",
+    "cost_per_application": "Menos de R$ 3,50 por aplicação (rendimento máximo)"
+  },
+  "exclusivity": {
+    "rule": "1 aplicador oficial por cidade",
+    "note": "Sujeito à disponibilidade e aprovação"
+  },
+  "keywords": [
+    "nanotecnologia",
+    "cura em até 30 minutos",
+    "até 100 aplicações",
+    "aplicação limpa",
+    "suporte diário",
+    "grupo exclusivo",
+    "mentoria prática",
+    "aplicador oficial por cidade",
+    "ecossistema técnico e lucrativo",
+    "R$ 347",
+    "menos de R$ 3,50 por aplicação"
+  ]
+}

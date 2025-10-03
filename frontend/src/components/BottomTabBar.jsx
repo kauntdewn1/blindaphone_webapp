@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
+import copy from '../content';
 
 const BottomTabBar = memo(({ activeTab, onTabChange }) => {
+  const ctas = copy?.ctas || [];
   const tabs = [
     {
       id: 'home',
@@ -38,7 +40,7 @@ const BottomTabBar = memo(({ activeTab, onTabChange }) => {
           <path d="M9 15H11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       ),
-      description: 'Seja Oficial'
+      description: ctas[2] || 'Seja Oficial'
     },
     {
       id: 'products',

@@ -518,10 +518,6 @@ class BlindaphoneCodeAnalyzer {
       recommendations.push('Considere usar React.memo em mais componentes para otimizar performance');
     }
     
-    if (this.stats.functions.withJSDoc < this.stats.functions.total * 0.5) {
-      recommendations.push('Documente mais funções com JSDoc, especialmente as Firebase Functions');
-    }
-    
     if (this.stats.files.bySize.xlarge > 0) {
       recommendations.push('Refatore arquivos muito grandes para melhor organização');
     }

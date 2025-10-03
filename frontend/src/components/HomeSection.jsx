@@ -1,8 +1,21 @@
 import React, { memo } from 'react';
+import copy from '../content';
 
 const HomeSection = memo(() => {
+  const ctas = copy?.ctas || [];
+  const faq = copy?.faq || [];
+  const disclaimer = copy?.disclaimer || '';
+
   return (
     <section className="ios-section">
+      <div className="device-frame">
+        <div className="device-notch" />
+        <div className="device-screen">
+          <div className="status-bar">
+            <div className="status-dots"><span className="status-dot" /><span className="status-dot" /><span className="status-dot" /></div>
+            <span>BLINDAPHONE</span>
+            <span>12:45</span>
+          </div>
       {/* Hero Section */}
       <div className="ios-hero">
         <div className="ios-hero-content">
@@ -13,11 +26,17 @@ const HomeSection = memo(() => {
               className="ios-hero-logo-img"
             />
           </div>
-          <p className="ios-hero-subtitle">Blindagem para celulares com resultados reais.</p>
+          <p className="ios-hero-subtitle">{copy?.structure?.[0] || 'Blindagem para celulares com resultados reais.'}</p>
           <p className="ios-hero-description">
-            Uma boa oportunidade de renda.<br />
-            com investimento baixo.
+            {copy?.structure?.[3] || 'Uma boa oportunidade de renda.'}
+            <br />
+            {copy?.structure?.[1] || 'com investimento baixo.'}
           </p>
+          {ctas[0] && (
+            <div className="ios-hero-cta">
+              <a className="ios-primary-button" href="#apply">{ctas[0]}</a>
+            </div>
+          )}
         </div>
       </div>
 
@@ -54,6 +73,27 @@ const HomeSection = memo(() => {
           </div>
           <h3>Performance</h3>
           <p>Máxima eficiência sem comprometer a usabilidade</p>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      {faq.length > 0 && (
+        <div className="ios-faq">
+          {faq.map((item, idx) => (
+            <div className="ios-faq-item" key={idx}>
+              <h4 className="ios-faq-q">{item.q}</h4>
+              <p className="ios-faq-a">{item.a}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Disclaimer */}
+      {disclaimer && (
+        <div className="ios-disclaimer">
+          <small>{disclaimer}</small>
+        </div>
+      )}
         </div>
       </div>
     </section>

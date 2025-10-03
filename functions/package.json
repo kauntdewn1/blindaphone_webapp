@@ -1,25 +1,29 @@
 {
   "name": "blindaphone-functions",
-  "description": "Firebase Cloud Functions para BlindAphone",
-  "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
+  "description": "Serverless functions (Netlify) para BlindAphone",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "main": "index.js",
   "engines": {
     "node": "18"
   },
-  "main": "index.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "start": "node index.js",
+    "build": "echo 'No build step for functions'",
+    "lint": "eslint .",
+    "test": "echo 'No tests yet' && exit 0"
+  },
   "dependencies": {
-    "firebase-admin": "^11.11.0",
-    "firebase-functions": "^4.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "pg": "^8.12.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
-    "firebase-functions-test": "^3.1.0"
-  },
-  "private": true
-} 
+    "eslint": "^8.57.0",
+    "netlify-cli": "^17.33.1"
+  }
+}
