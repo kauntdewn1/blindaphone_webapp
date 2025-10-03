@@ -1,7 +1,7 @@
 # 🚀 BlindAphone WebApp - Makefile
 # Comandos para facilitar o desenvolvimento e deploy
 
-.PHONY: help install dev build deploy clean setup firebase-init
+.PHONY: help install dev build deploy clean setup firebase-init clean-all clean-node
 
 # 📋 Comando padrão - mostra ajuda
 help:
@@ -21,9 +21,7 @@ help:
 	@echo "  make build-all   - Build completo"
 	@echo ""
 	@echo "🚀 Deploy:"
-	@echo "  make deploy      - Deploy completo"
-	@echo "  make deploy-hosting- Deploy apenas do hosting"
-	@echo "  make deploy-functions- Deploy apenas das functions"
+	@echo "  make deploy      - Deploy via Netlify CLI"
 	@echo ""
 	@echo "🧹 Limpeza:"
 	@echo "  make clean       - Remove arquivos temporários"
@@ -61,8 +59,8 @@ dev-frontend:
 	cd frontend && npm run dev
 
 dev-functions:
-	@echo "🚀 Iniciando Firebase Functions..."
-	firebase emulators:start --only functions
+	@echo "🚀 Iniciando Netlify Dev (funções + proxy) ..."
+	netlify dev
 
 # 🏗️ Build
 build:
@@ -77,21 +75,16 @@ build-all: build
 
 # 🚀 Deploy
 deploy: build
-	@echo "🚀 Fazendo deploy completo..."
-	firebase deploy
+	@echo "🚀 Fazendo deploy (Netlify)..."
+	netlify deploy --prod
 	@echo "✅ Deploy concluído!"
 
-deploy-hosting: build
-	@echo "🚀 Deploy do hosting..."
-	firebase deploy --only hosting:blindaphoneoficial
-	@echo "✅ Hosting deployado!"
-
-deploy-functions:
-	@echo "🚀 Deploy das functions..."
-	firebase deploy --only functions
-	@echo "✅ Functions deployadas!"
+deploy-hosting:
+	@echo "ℹ️  Hosting via Netlify — use target deploy"
+	@echo "   netlify deploy --prod"
 
 # 🧹 Limpeza
+
 clean:
 	@echo "🧹 Limpando arquivos temporários..."
 	rm -rf frontend/dist

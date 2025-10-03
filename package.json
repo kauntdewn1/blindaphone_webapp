@@ -8,15 +8,16 @@
     "analyze": "node code-analysis.js",
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "deploy": "vercel --prod"
+    "deploy": "netlify deploy --prod",
+    "clean": "rimraf frontend/node_modules functions/node_modules node_modules frontend/dist functions/lib",
+    "clean:all": "rimraf frontend/node_modules functions/node_modules node_modules && rimraf frontend/dist functions/lib"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.5.1",
-    "pg": "^8.11.5"
+    "pg": "^8.12.0"
   },
   "devDependencies": {
-    "vercel": "^32.0.0",
-    "netlify-cli": "^17.33.0"
+    "eslint": "^9.36.0",
+    "netlify-cli": "^23.9.1"
   },
   "engines": {
     "node": ">=18.0.0"
