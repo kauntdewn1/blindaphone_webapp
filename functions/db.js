@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { randomUUID } = require('crypto');
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString) {
@@ -11,7 +12,7 @@ const pool = new Pool({ connectionString, max: 5, idleTimeoutMillis: 10000 });
 async function ensureSchema() {
   const sql = `
   CREATE TABLE IF NOT EXISTS aplicadores (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    id UUID PRIMARY KEY,
     nome TEXT,
     email TEXT,
     cidade TEXT,
@@ -22,5 +23,4 @@ async function ensureSchema() {
   await pool.query(sql);
 }
 
-module.exports = { pool, ensureSchema };
-
+module.exports = { pool, ensureSchema, randomUUID };

@@ -43,8 +43,7 @@ const CACHE_STRATEGIES = {
   ],
   // API - Network First
   api: [
-    '/api/',
-    'https://us-central1-blindaphoneoficial.cloudfunctions.net/'
+    '/api/'
   ],
   // Páginas - Stale While Revalidate
   pages: [

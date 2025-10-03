@@ -1,7 +1,8 @@
 // Netlify/Express adapter replacing Firebase Functions
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const { pool, ensureSchema } = require('./db');
+const { pool, ensureSchema, randomUUID } = require('./db');
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -17,11 +18,12 @@ ensureSchema().catch((e) => console.error('Schema init error:', e));
 app.post("/aplicador", async (req, res) => {
   try {
     const { nome, email, cidade, telefone } = req.body || {};
+    const id = randomUUID();
     const { rows } = await pool.query(
-      `INSERT INTO aplicadores (nome, email, cidade, telefone)
-       VALUES ($1, $2, $3, $4)
+      `INSERT INTO aplicadores (id, nome, email, cidade, telefone)
+       VALUES ($1, $2, $3, $4, $5)
        RETURNING id, nome, email, cidade, telefone, created_at`,
-      [nome || null, email || null, cidade || null, telefone || null]
+      [id, nome || null, email || null, cidade || null, telefone || null]
     );
     res.status(201).json(rows[0]);
   } catch (error) {
