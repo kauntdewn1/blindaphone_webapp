@@ -18,6 +18,7 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/$1"
+    
     },
     {
       "src": "/(.*)",
@@ -28,6 +29,5 @@
     "POSTGRES_URL": "@postgres_url",
     "NODE_ENV": "production",
     "ADMIN_TOKEN": "@admin_token"
-  },
-  
+  }
 }
