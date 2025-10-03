@@ -106,7 +106,7 @@ export const usePWA = () => {
         navigator.vibrate(patterns[type] || patterns.light);
       }
     } catch (error) {
-      console.log('Haptic feedback não suportado');
+      // Haptic feedback não suportado - silencioso
     }
   }, [hasHapticSupport]);
 
@@ -121,7 +121,6 @@ export const usePWA = () => {
         const { outcome } = await deferredPrompt.userChoice;
         
         if (outcome === 'accepted') {
-          console.log('✅ PWA instalado com sucesso!');
           triggerHaptic('success');
           setDeferredPrompt(null);
           setShowInstallBanner(false);
@@ -135,7 +134,6 @@ export const usePWA = () => {
         showIOSInstallInstructions();
       }
     } catch (error) {
-      console.error('❌ Erro ao instalar PWA:', error);
       triggerHaptic('error');
     }
   }, [deferredPrompt, isIOS, triggerHaptic]);
@@ -396,11 +394,9 @@ export const usePWA = () => {
         const registration = await navigator.serviceWorker.getRegistration();
         if (registration) {
           await registration.update();
-          console.log('✅ Verificação de atualizações concluída');
           triggerHaptic('success');
         }
       } catch (error) {
-        console.error('❌ Erro ao verificar atualizações:', error);
         triggerHaptic('error');
       }
     }
@@ -412,10 +408,8 @@ export const usePWA = () => {
       try {
         const registration = await navigator.serviceWorker.ready;
         await registration.sync.register('background-sync');
-        console.log('🔄 Sincronização em background registrada');
         triggerHaptic('medium');
       } catch (error) {
-        console.error('❌ Erro ao registrar sincronização:', error);
         triggerHaptic('error');
       }
     }
@@ -427,12 +421,10 @@ export const usePWA = () => {
       try {
         const permission = await Notification.requestPermission();
         if (permission === 'granted') {
-          console.log('✅ Permissão de notificação concedida');
           triggerHaptic('success');
         }
         return permission;
       } catch (error) {
-        console.error('❌ Erro ao solicitar permissão:', error);
         triggerHaptic('error');
       }
     }

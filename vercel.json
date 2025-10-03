@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "name": "blindaphone-webapp",
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/$1"
+    }
+  ],
+  "env": {
+    "POSTGRES_URL": "@postgres_url",
+    "NODE_ENV": "production",
+    "ADMIN_TOKEN": "@admin_token"
+  },
+  "functions": {
+    "api/aplicador.js": {
+      "maxDuration": 30
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// Configuração do Firebase
+// Configuração do Firebase - Configuração estática para admin
 const firebaseConfig = {
   apiKey: "sua-api-key",
   authDomain: "blindaphoneoficial.firebaseapp.com",
@@ -61,10 +61,10 @@ function login() {
 function logout() {
   auth.signOut()
     .then(() => {
-      console.log('Logout realizado com sucesso');
+      // Logout realizado com sucesso
     })
     .catch((error) => {
-      console.error('Erro no logout:', error);
+      // Erro no logout - silencioso
     });
 }
 
@@ -157,7 +157,6 @@ async function loadAplicadores() {
     updateDashboardStats(aplicadores);
     updateAplicadoresTable(aplicadores);
   } catch (error) {
-    console.error('Erro ao carregar aplicadores:', error);
     document.getElementById('aplicadores-tbody').innerHTML = 
       '<tr><td colspan="5">Erro ao carregar dados</td></tr>';
   }
@@ -218,7 +217,6 @@ async function deleteAplicador(id) {
       alert('Erro ao deletar aplicador');
     }
   } catch (error) {
-    console.error('Erro ao deletar aplicador:', error);
     alert('Erro ao deletar aplicador');
   }
 }

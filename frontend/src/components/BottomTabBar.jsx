@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const BottomTabBar = ({ activeTab, onTabChange }) => {
+const BottomTabBar = memo(({ activeTab, onTabChange }) => {
   const tabs = [
     {
       id: 'home',
@@ -97,6 +97,8 @@ const BottomTabBar = ({ activeTab, onTabChange }) => {
       <div className="ios-safe-area" />
     </div>
   );
-};
+});
+
+BottomTabBar.displayName = 'BottomTabBar';
 
 export default BottomTabBar;

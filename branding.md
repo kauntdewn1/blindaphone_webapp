@@ -20,7 +20,7 @@
 | Cor | Código | Uso |
 |-----|--------|-----|
 | Marinho | `#001b42` | Fundo principal, contraste |
-| Cinza Chumbo | `#1F1F1F` | Blocos, seções secundárias |
+| Dark Blue | `#000a26` | Blocos, seções secundárias |
 | Amarelo Blindado | `#FFD400` | Destaques, botões, CTA |
 | Branco Técnico | `#F5F5F5` | Textos sobre fundo escuro |
 | Azul Noturno | `#141C2A` | Base para OVERCOAT |

@@ -8,12 +8,54 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        // Usa nosso service worker customizado
+        importScripts: ['/sw.js'],
+        // Configurações de precache
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        // Estratégias de cache
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 ano
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 ano
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 dias
+              }
+            }
+          }
+        ]
+      },
       manifest: {
-        name: 'IRON FORCE - Blinda Phone',
-        short_name: 'Blinda Phone',
-        description: 'Aplicador Oficial IRON FORCE - Transforme seu tempo em dinheiro',
-        theme_color: '#000000',
-        background_color: '#ffffff',
+        name: 'BlindaPhone - Proteção Inteligente',
+        short_name: 'BlindaPhone',
+        description: 'Proteção inteligente para seu dispositivo móvel',
+        theme_color: '#001b42',
+        background_color: '#f5f5f7',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
@@ -38,8 +80,22 @@ export default defineConfig({
             purpose: 'any'
           }
         ],
-        categories: ['business', 'productivity'],
-        lang: 'pt-BR'
+        categories: ['business', 'productivity', 'utilities'],
+        lang: 'pt-BR',
+        shortcuts: [
+          {
+            name: 'Cadastrar Aplicador',
+            short_name: 'Cadastrar',
+            description: 'Cadastre-se como aplicador oficial',
+            url: '/?action=cadastrar',
+            icons: [
+              {
+                src: '/branding/android-chrome-192x192.png',
+                sizes: '192x192'
+              }
+            ]
+          }
+        ]
       }
     })
   ],

@@ -1,0 +1,22 @@
+{
+  "name": "blindaphone-webapp",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "BlindaPhone WebApp - PWA para proteção de dispositivos móveis",
+  "main": "code-analysis.js",
+  "scripts": {
+    "analyze": "node code-analysis.js",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.5.1"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

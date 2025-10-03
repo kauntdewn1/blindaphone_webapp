@@ -1,154 +1,796 @@
-/* 🎯 BLINDA PHONE - Estilos da Landing Page IRON FORCE */
+/* 🎯 BLINDA PHONE - Estilos da Aplicação PWA */
 
-/* Estilos base da landing page */
-.iron-force-landing {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Hero Section */
-.hero {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background: #f5f5f7;
+  overflow-x: hidden;
+}
+
+/* App principal */
+.ios-app {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   position: relative;
 }
 
-.video-container {
-  position: relative;
+.ios-main {
+  flex: 1;
+  padding-bottom: 100px; /* Espaço para bottom tab bar */
 }
 
-.video-placeholder {
+/* Seções */
+.ios-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0, 10, 38, 0.3);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
 }
 
-.play-button {
-  cursor: pointer;
-  transition: all 0.3s ease;
+.ios-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 20px;
+  pointer-events: none;
 }
 
-.play-button:hover {
-  transform: scale(1.1);
-  color: #E6BF00;
+.ios-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Headline principal */
-.headline {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Hero Section */
+.ios-hero {
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 40px;
 }
 
-/* Botões e CTAs */
-.btn-primary {
-  box-shadow: 0 4px 15px rgba(255, 212, 0, 0.3);
+.ios-hero-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(255, 212, 0, 0.4);
+.ios-hero-logo {
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-secondary:hover {
-  box-shadow: 0 4px 15px rgba(255, 212, 0, 0.3);
+.ios-hero-logo-img {
+  max-width: 300px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
 }
 
-/* Cards e seções */
-.card-primary {
-  transition: all 0.3s ease;
-  border-left: 4px solid #FFD400;
+.ios-hero-logo-img:hover {
+  transform: scale(1.05);
 }
 
-.card-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+.ios-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Tabela de comparação */
-.comparison-table {
-  overflow-x: auto;
+.ios-hero-description {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
-.comparison-table table {
-  border-collapse: separate;
-  border-spacing: 0;
+/* Features Grid */
+.ios-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.comparison-table th,
-.comparison-table td {
-  padding: 1rem;
+.ios-feature-card {
+  background: rgba(0, 10, 38, 0.25);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  min-height: 80px;
 }
 
-.comparison-table th:first-child,
-.comparison-table td:first-child {
-  border-radius: 8px 0 0 8px;
+.ios-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.03) 50%, 
+    rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 16px;
+  pointer-events: none;
 }
 
-.comparison-table th:last-child,
-.comparison-table td:last-child {
-  border-radius: 0 8px 8px 0;
+.ios-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ios-feature-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.ios-icon-purple {
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.ios-icon-green {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.ios-icon-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+.ios-feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.ios-feature-card p {
+  color: #b0b0b0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+/* Seções de conteúdo */
+.ios-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.ios-section-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About Section */
+.ios-about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.ios-about-text h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.ios-about-text p {
+  margin-bottom: 24px;
+  color: #515154;
+  line-height: 1.6;
+}
+
+.ios-values-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.ios-values-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #515154;
+}
+
+.ios-value-icon {
+  width: 20px;
+  height: 20px;
+  background: #34c759;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ios-about-stats {
+  display: grid;
+  gap: 24px;
+}
+
+.ios-stat-item {
+  text-align: center;
+  padding: 24px;
+  background: rgba(0, 10, 38, 0.2);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.ios-stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.06) 0%, 
+    rgba(255, 255, 255, 0.02) 50%, 
+    rgba(255, 255, 255, 0.005) 100%);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.ios-stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.ios-stat-label {
+  color: #b0b0b0;
+  font-weight: 500;
+}
+
+/* Apply Section */
+.ios-apply-benefits h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.ios-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.ios-benefit-item {
+  background: rgba(0, 10, 38, 0.25);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ios-benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.03) 50%, 
+    rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.ios-benefit-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 24px;
+}
+
+.ios-benefit-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.ios-benefit-item p {
+  color: #b0b0b0;
+  line-height: 1.5;
+}
+
+.ios-apply-cta {
+  text-align: center;
 }
 
 /* Formulário */
-.form-container input:focus {
+.ios-form-container {
+  background: rgba(0, 10, 38, 0.3);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.ios-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.ios-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.ios-form-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.ios-form-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f2f2f7;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0b0b0;
+}
+
+.ios-form-group {
+  margin-bottom: 24px;
+}
+
+.ios-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.ios-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e5e5ea;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.ios-input:focus {
   outline: none;
-  border-color: #FFD400;
-  box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Seções alternadas */
-.section-dark {
-  border-top: 4px solid #FFD400;
+.ios-textarea {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e5e5ea;
+  border-radius: 12px;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.3s ease;
 }
 
-.section-light {
-  background-color: #1F1F1F;
+.ios-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Footer */
-footer {
-  border-top: 4px solid #FFD400;
+/* Botões */
+.ios-button {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
-/* CTA Flutuante */
-.floating-cta {
-  animation: pulse 2s infinite;
+.ios-button-primary {
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 212, 0, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 212, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 212, 0, 0);
-  }
+.ios-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+}
+
+.ios-button-secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.ios-button-secondary:hover {
+  background: #667eea;
+  color: white;
+}
+
+.ios-button-tertiary {
+  background: #f2f2f7;
+  color: #ffffff;
+  border: 2px solid #e5e5ea;
+}
+
+.ios-button-tertiary:hover {
+  background: #e5e5ea;
+}
+
+/* Products Section */
+.ios-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.ios-product-card {
+  background: #000a26;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ios-product-card:hover {
+  transform: translateY(-8px);
+}
+
+.ios-product-image {
+  height: 200px;
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 48px;
+}
+
+.ios-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ios-product-content {
+  padding: 32px 24px;
+}
+
+.ios-product-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.ios-product-description {
+  color: #b0b0b0;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.ios-product-features {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.ios-product-features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #515154;
+}
+
+.ios-product-features .ios-feature-icon {
+  width: 16px;
+  height: 16px;
+  background: #34c759;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.ios-product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.ios-products-cta {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ios-products-cta h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.ios-products-cta p {
+  color: #b0b0b0;
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+/* Contact Section */
+.ios-contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.ios-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ios-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: #000a26;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ios-contact-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #001b42 0%, #003658 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.ios-contact-details h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+.ios-contact-details p {
+  color: #b0b0b0;
+}
+
+.ios-contact-form {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ios-contact-form h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #ffffff;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .hero {
-    min-height: 80vh;
-    padding: 2rem 0;
+  .ios-hero-logo-img {
+    max-width: 200px;
+    max-height: 80px;
   }
   
-  .headline {
+  .ios-features {
+    gap: 12px;
+    max-width: 350px;
+  }
+  
+  .ios-feature-card {
+    min-height: 70px;
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .ios-feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .ios-feature-card h3 {
+    font-size: 1rem;
+  }
+  
+  .ios-feature-card p {
+    font-size: 0.8rem;
+  }
+  
+  .ios-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .ios-section-title {
     font-size: 2rem;
-    line-height: 1.2;
   }
   
-  .comparison-table {
-    font-size: 0.875rem;
+  .ios-about-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   
-  .comparison-table th,
-  .comparison-table td {
-    padding: 0.75rem 0.5rem;
+  .ios-contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .ios-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .ios-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ios-products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ios-form-container {
+    padding: 24px;
+  }
+  
+  .ios-contact-form {
+    padding: 24px;
   }
 }
 
-/* Animações de entrada */
+/* Animações */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -160,38 +802,51 @@ footer {
   }
 }
 
-.hero,
-.comparison,
-.business-model,
-.find-or-register,
-.kit-contents,
-.guarantee-exclusivity,
-footer {
-  animation: fadeInUp 0.8s ease-out;
+.ios-section {
+  animation: fadeInUp 0.6s ease-out;
 }
 
-/* Estados de hover e focus */
+/* Estados de foco para acessibilidade */
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 2px solid #FFD400;
+  outline: 2px solid #667eea;
   outline-offset: 2px;
 }
 
-/* Melhorias de acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-  .btn-primary,
-  .btn-secondary,
-  .card-primary,
-  .floating-cta {
-    animation: none;
-    transition: none;
-  }
-}
-
-/* Estilos para modo escuro (já aplicado por padrão) */
+/* Modo escuro */
 @media (prefers-color-scheme: dark) {
-  .iron-force-landing {
-    color-scheme: dark;
+  body {
+    background: #1c1c1e;
+    color: #f2f2f7;
+  }
+  
+  .ios-feature-card,
+  .ios-stat-item,
+  .ios-benefit-item,
+  .ios-product-card,
+  .ios-contact-item,
+  .ios-contact-form,
+  .ios-form-container,
+  .ios-products-cta {
+    background: #2c2c2e;
+    color: #f2f2f7;
+  }
+  
+  .ios-input,
+  .ios-textarea {
+    background: #1c1c1e;
+    border-color: #3a3a3c;
+    color: #f2f2f7;
+  }
+  
+  .ios-section-title,
+  .ios-hero-title {
+    color: #f2f2f7;
+  }
+  
+  .ios-section-subtitle,
+  .ios-hero-subtitle {
+    color: #8e8e93;
   }
 }
