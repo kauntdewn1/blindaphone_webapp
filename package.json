@@ -11,10 +11,12 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.5.1"
+    "@vercel/postgres": "^0.5.1",
+    "pg": "^8.11.5"
   },
   "devDependencies": {
-    "vercel": "^32.0.0"
+    "vercel": "^32.0.0",
+    "netlify-cli": "^17.33.0"
   },
   "engines": {
     "node": ">=18.0.0"

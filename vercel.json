@@ -24,10 +24,5 @@
       "src": "/(.*)",
       "dest": "/frontend/dist/$1"
     }
-  ],
-  "env": {
-    "POSTGRES_URL": "@postgres_url",
-    "NODE_ENV": "production",
-    "ADMIN_TOKEN": "@admin_token"
-  }
+  ]
 }
