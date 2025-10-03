@@ -1,5 +1,4 @@
-# 🔥 Firebase Admin SDK
-/Users/nettomello/CODIGOS/blindaphone_webapp/firebase-adminsdk.json
+
 
 # ⚙️ Node & NPM
 node_modules/
@@ -34,7 +33,7 @@ env.example
 .DS_Store
 Thumbs.db
 
-# ⚙️ Firebase Functions (backend)
+# ⚙️ Netlify Functions (backend)
 functions/node_modules/
 functions/lib/
 functions/.env
@@ -51,8 +50,6 @@ coverage/
 temp/
 
 # 🔐 Arquivos de configuração sensíveis
-firebase-adminsdk.json
-serviceAccountKey.json
 *.key
 *.pem
 

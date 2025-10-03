@@ -7,27 +7,32 @@ O **Blinda Phone** agora é um **Progressive Web App (PWA)** de primeira classe 
 ## 🌟 Funcionalidades PWA
 
 ### 📱 Instalação Nativa
+
 - **Android/Chrome**: Instalação automática com prompt nativo
 - **iOS**: Instruções visuais para adicionar à tela inicial
 - **Desktop**: Instalação como aplicativo independente
 
 ### 🔄 Funcionalidades Offline
+
 - Cache inteligente de recursos estáticos
 - Funcionamento completo sem internet
 - Sincronização automática quando online
 
 ### 🎯 Experiência iOS-like
+
 - Design glassmorphism com backdrop-filter
 - Animações suaves com cubic-bezier
 - Haptic feedback (vibração) em dispositivos compatíveis
 - Safe area support para dispositivos com notch
 
 ### 🔔 Notificações Push
+
 - Notificações nativas do sistema
 - Suporte a notificações em background
 - Personalização completa de ícones e badges
 
 ### 📊 Status em Tempo Real
+
 - Monitoramento de status da rede
 - Indicadores de funcionalidades disponíveis
 - Controles de atualização e sincronização
@@ -35,14 +40,18 @@ O **Blinda Phone** agora é um **Progressive Web App (PWA)** de primeira classe 
 ## 🚀 Como Usar
 
 ### 1. Instalação Automática
+
 O PWA detecta automaticamente se pode ser instalado e mostra um banner elegante na parte inferior da tela.
 
 ### 2. Instalação Manual
+
 - **Chrome/Edge**: Clique no ícone de instalação na barra de endereços
 - **Safari (iOS)**: Use o botão "Compartilhar" → "Adicionar à Tela Inicial"
 
 ### 3. Controles Avançados
+
 Clique no widget "PWA Status" no canto superior esquerdo para:
+
 - Verificar atualizações
 - Sincronizar dados offline
 - Gerenciar permissões de notificação
@@ -51,6 +60,7 @@ Clique no widget "PWA Status" no canto superior esquerdo para:
 ## 🎨 Design System
 
 ### Cores iOS
+
 ```css
 --ios-primary: #007AFF      /* Azul principal */
 --ios-secondary: #5856D6    /* Roxo secundário */
@@ -60,6 +70,7 @@ Clique no widget "PWA Status" no canto superior esquerdo para:
 ```
 
 ### Componentes Disponíveis
+
 - `.ios-card` - Cards com glassmorphism
 - `.ios-button` - Botões com animações
 - `.ios-input` - Campos de entrada estilizados
