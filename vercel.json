@@ -29,9 +29,5 @@
     "NODE_ENV": "production",
     "ADMIN_TOKEN": "@admin_token"
   },
-  "functions": {
-    "api/aplicador.js": {
-      "maxDuration": 30
-    }
-  }
+  
 }
