@@ -379,14 +379,14 @@ export default function BlindaphoneV2() {
             </div>
           </div>
 
-          <div className="glass-card-dark p-10 rounded-3xl shadow-2xl border-4 border-bp-gold max-w-md mx-auto">
-            <div className="text-sm text-bp-gold-light/80 uppercase tracking-wide mb-2">Preço único</div>
+          <div className="bg-gradient-navy p-10 rounded-3xl shadow-2xl border-4 border-bp-gold max-w-md mx-auto">
+            <div className="text-sm text-bp-gold-light/90 uppercase tracking-wide mb-2">Preço único</div>
             <div className="text-6xl font-black text-gradient mb-2">R$ 347</div>
             <div className="text-bp-gold-light font-semibold mb-6">Menos de R$ 3,50 por aplicação</div>
             
-            <div className="bg-gradient-gold/10 p-6 rounded-xl mb-6 border border-bp-gold/20">
-              <div className="text-sm text-bp-gold-light/90 mb-2">Inclui:</div>
-              <ul className="text-left space-y-2 text-sm text-bp-gold-light/90">
+            <div className="bg-bp-navy-light/50 p-6 rounded-xl mb-6 border border-bp-gold/30">
+              <div className="text-sm text-bp-gold-light mb-2 font-semibold">Inclui:</div>
+              <ul className="text-left space-y-2 text-sm text-bp-gold-light">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-bp-gold flex-shrink-0 mt-0.5" />
                   <span>Frasco com até 100 aplicações</span>
@@ -413,7 +413,7 @@ export default function BlindaphoneV2() {
               Garantir Agora
             </a>
 
-            <p className="text-xs text-bp-gold-light/70 mt-6 leading-relaxed">
+            <p className="text-xs text-bp-gold-light/80 mt-6 leading-relaxed">
               Tempo de cura de até 30 minutos conforme condições de aplicação. Rendimento de até 100 aplicações no protocolo recomendado. Exclusividade de 1 aplicador por cidade sujeita à disponibilidade e aprovação.
             </p>
           </div>
