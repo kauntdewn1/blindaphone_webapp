@@ -124,22 +124,22 @@ export default function BlindaphoneV2() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-gradient-navy rounded-3xl mx-4 mb-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 glass-card text-bp-navy px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-float">
+          <div className="text-white">
+            <div className="inline-flex items-center gap-2 glass-card-dark text-bp-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-float">
               <Award className="w-4 h-4 text-bp-gold" />
               Nanotecnologia Certificada
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-gradient-navy">
+            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-white">
               Proteja smartphones com{' '}
               <span className="text-gradient animate-glow">
                 IRON FORCE
               </span>
             </h1>
             
-            <p className="mt-6 text-xl text-bp-navy/80 leading-relaxed">
+            <p className="mt-6 text-xl text-bp-gold-light/90 leading-relaxed">
               Não é película, é Iron Force. Cura em até 30 minutos. Até 100 aplicações por frasco. Aplicação limpa — sem escorrer entre botões. Proteção que não esconde o design do aparelho.
             </p>
 
@@ -152,7 +152,7 @@ export default function BlindaphoneV2() {
               </a>
               <a 
                 href="#aplicador" 
-                className="btn-secondary"
+                className="glass-card-dark text-bp-gold border-bp-gold/30 hover:bg-bp-gold/10 px-8 py-4 rounded-xl font-bold text-lg transition-all"
               >
                 Quero Ser Aplicador
               </a>
@@ -165,7 +165,7 @@ export default function BlindaphoneV2() {
                 { icon: Droplets, text: '100 aplicações' },
                 { icon: CheckCircle, text: 'Limpo e preciso' }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-bp-navy/80 glass-card px-3 py-2 rounded-lg">
+                <div key={i} className="flex items-center gap-2 text-sm text-bp-gold-light glass-card-dark px-3 py-2 rounded-lg">
                   <item.icon className="w-5 h-5 text-bp-gold" />
                   <span className="font-medium">{item.text}</span>
                 </div>
@@ -174,20 +174,20 @@ export default function BlindaphoneV2() {
           </div>
 
           <div className="relative animate-float">
-            <div className="glass-card-dark rounded-3xl p-8 shadow-2xl">
-              <div className="aspect-[3/4] bg-gradient-navy rounded-2xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-gold opacity-20"></div>
-                <div className="relative z-10 text-center text-bp-white p-8">
+            <div className="glass-card rounded-3xl p-8 shadow-2xl">
+              <div className="aspect-[3/4] bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/30 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30">
+                <div className="absolute inset-0 bg-gradient-gold opacity-10"></div>
+                <div className="relative z-10 text-center text-bp-navy p-8">
                   <img 
                     src="/assets/images/IRON.png" 
                     alt="IRON FORCE - BLINDAPHONE" 
                     className="w-48 h-48 mx-auto mb-4 object-contain animate-pulse-slow"
                   />
-                  <p className="text-sm font-semibold text-bp-gold-light">IRON FORCE</p>
-                  <p className="text-xs opacity-75 mt-2">Não é película, é Iron Force</p>
+                  <p className="text-sm font-semibold text-bp-navy">IRON FORCE</p>
+                  <p className="text-xs text-bp-navy/70 mt-2">Não é película, é Iron Force</p>
                 </div>
               </div>
-              <p className="mt-6 text-center text-sm text-bp-navy/80">
+              <p className="mt-6 text-center text-sm text-bp-gold-light">
                 Camada ultrafina de nanotecnologia que preserva o design original do aparelho
               </p>
             </div>
