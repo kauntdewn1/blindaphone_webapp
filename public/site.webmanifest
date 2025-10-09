@@ -1,0 +1,27 @@
+{
+  "name": "BLINDAPHONE - Proteção Invisível para Smartphones",
+  "short_name": "BLINDAPHONE",
+  "description": "Proteja seu smartphone com nanotecnologia invisível. Cura em 30 minutos, até 100 aplicações por frasco.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ec4899",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/BLINDAPHONE-PERFIL.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/BLINDAPHONE-PERFIL.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}

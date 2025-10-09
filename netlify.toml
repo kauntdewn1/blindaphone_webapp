@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  NEXT_PUBLIC_WHATSAPP_PHONE = "5562993737713"
+  NEXT_PUBLIC_SITE_URL = "https://blindaphone.com.br"
+
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_WHATSAPP_PHONE = "5562993737713"
+  NEXT_PUBLIC_SITE_URL = "https://blindaphone.com.br"
