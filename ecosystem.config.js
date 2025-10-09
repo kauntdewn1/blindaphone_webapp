@@ -1,9 +1,9 @@
-{
-  "apps": [
+module.exports = {
+  apps: [
     {
-      "name": "blindaphone",
-      "script": "npm",
-      "args": "start",
+      name: "blindaphone",
+      script: "npm",
+      args: "start",
       "cwd": "/var/www/blindaphone",
       "instances": "max",
       "exec_mode": "cluster",
