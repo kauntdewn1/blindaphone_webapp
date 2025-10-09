@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { Shield, Droplets, Clock, Users, CheckCircle, Phone, Star, TrendingUp, Award, Zap, AlertCircle } from 'lucide-react';
+import { Shield, Droplets, Clock, Sparkles, CheckCircle, Phone, Star, TrendingUp, Award, Zap, AlertCircle } from 'lucide-react';
+import React from 'react';
+
 
 const WHATSAPP_PHONE = '5562993737713'; // SUBSTITUA pelo número real
 
@@ -123,94 +125,130 @@ export default function BlindaphoneV2() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32 overflow-hidden">
-        {/* Background com gradiente */}
-        <div className="absolute inset-0 bg-gradient-navy rounded-3xl mx-4"></div>
-        
-        {/* Elementos decorativos modernos */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-bp-gold/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-bp-gold/5 rounded-full blur-3xl"></div>
-        
-        <div className="relative grid lg:grid-cols-2 gap-16 items-center">
-          {/* Conteúdo de texto */}
-          <div className="text-white space-y-8">
-            <div className="inline-flex items-center gap-2 glass-card-dark text-bp-gold px-5 py-2.5 rounded-full text-sm font-semibold animate-float backdrop-blur-xl">
-              <Award className="w-4 h-4 text-bp-gold" />
-              Nanotecnologia Certificada
+      {/* Grid pattern background */}
+      {/* Animated gradient orbs */}
+
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(203,171,106,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(203,171,106,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+     
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        {/* Badge flutuante no topo */}
+        <div className="flex justify-center mb-12 animate-bounce" style={{animationDuration: '3s'}}>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-600/20 backdrop-blur-xl border border-amber-500/30 text-amber-400 px-6 py-3 rounded-full text-sm font-bold shadow-lg shadow-amber-500/20">
+            <Sparkles className="w-5 h-5 animate-spin" style={{animationDuration: '4s'}} />
+            Nanotecnologia Certificada • Revolução na Proteção
+            <Sparkles className="w-5 h-5 animate-spin" style={{animationDuration: '4s', animationDirection: 'reverse'}} />
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8 items-center">
+          {/* Coluna esquerda - Produto em destaque MAIOR */}
+          <div className="lg:col-span-3 order-2 lg:order-1">
+            <div className="relative group">
+              {/* Anel de luz rotativo */}
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/30 via-yellow-500/30 to-amber-500/30 rounded-full blur-2xl animate-spin" style={{animationDuration: '8s'}}></div>
+              
+              {/* Card do produto */}
+              <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-2xl rounded-3xl p-12 border border-amber-500/20 shadow-2xl">
+                {/* Imagem DOMINANTE */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-yellow-600/20 rounded-2xl blur-xl"></div>
+                  <img 
+                    src="/assets/images/IRON.png" 
+                    alt="IRON FORCE" 
+                    className="relative w-full h-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                
+                {/* Info rápida abaixo da imagem */}
+                <div className="mt-8 flex items-center justify-center gap-6 text-amber-400/80 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4" />
+                    <span>100 aplicações</span>
+                  </div>
+                  <div className="w-1 h-1 rounded-full bg-amber-400/50"></div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span>Cura em 30min</span>
+                  </div>
+                  <div className="w-1 h-1 rounded-full bg-amber-400/50"></div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    <span>Nanotecnologia</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] text-white">
-              Proteja smartphones com{' '}
-              <span className="text-gradient animate-glow block mt-2">
-                IRON FORCE
+          </div>
+
+          {/* Coluna direita - Conteúdo compacto e poderoso */}
+          <div className="lg:col-span-2 order-1 lg:order-2 text-white space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1]">
+              Não é película.
+              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 animate-pulse">
+                É IRON FORCE
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-bp-gold-light/90 leading-relaxed max-w-xl">
-              Não é película, é Iron Force. Cura em até 30 minutos. Até 100 aplicações por frasco. Aplicação limpa — sem escorrer entre botões.
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Proteção invisível que preserva o design original. Aplicação limpa, sem escorrer. Tecnologia que cura em 30 minutos.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            {/* CTAs empilhados */}
+            <div className="space-y-3 pt-4">
               <a 
                 href="#contato" 
-                className="btn-primary group"
+                className="block w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-900 px-8 py-5 rounded-2xl font-black text-xl text-center transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50"
               >
-                Comprar Agora — R$ 347
-                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                Comprar Agora • R$ 347
               </a>
               <a 
                 href="#aplicador" 
-                className="glass-card-dark text-bp-gold border-bp-gold/30 hover:bg-bp-gold/10 hover:border-bp-gold/50 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
+                className="block w-full bg-slate-800/50 backdrop-blur-xl border-2 border-amber-500/30 hover:border-amber-500/60 text-amber-400 px-8 py-5 rounded-2xl font-bold text-lg text-center transition-all hover:bg-slate-800/70"
               >
                 Quero Ser Aplicador
               </a>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
+            {/* Features minimalistas */}
+            <div className="grid grid-cols-2 gap-3 pt-6">
               {[
                 { icon: Shield, text: 'Nanotecnologia' },
-                { icon: Clock, text: 'Cura em 30min' },
-                { icon: Droplets, text: '100 aplicações' },
-                { icon: CheckCircle, text: 'Limpo e preciso' }
+                { icon: Droplets, text: 'Sem escorrer' },
+                { icon: CheckCircle, text: 'Invisível' },
+                { icon: Zap, text: 'Alta duração' }
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 text-center text-sm text-bp-gold-light glass-card-dark px-4 py-4 rounded-xl hover:scale-105 transition-transform">
-                  <item.icon className="w-6 h-6 text-bp-gold" />
-                  <span className="font-semibold">{item.text}</span>
+                <div key={i} className="flex items-center gap-3 bg-slate-800/30 backdrop-blur-xl border border-amber-500/20 px-4 py-3 rounded-xl">
+                  <item.icon className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                  <span className="text-sm font-semibold text-slate-300">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Card do produto com destaque na imagem */}
-          <div className="relative lg:scale-110 animate-float">
-            {/* Glow effect atrás da imagem */}
-            <div className="absolute inset-0 bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/20 rounded-3xl blur-2xl"></div>
-            
-            <div className="relative glass-card rounded-3xl p-8 shadow-2xl backdrop-blur-xl">
-              {/* Container da imagem com foco total */}
-              <div className="bg-gradient-to-br from-bp-gold/10 to-bp-gold-light/20 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30 aspect-square">
-                <div className="absolute inset-0 bg-gradient-gold opacity-5"></div>
-                
-                {/* Imagem em destaque */}
-                <img 
-                  src="/assets/images/IRON.png" 
-                  alt="IRON FORCE - BLINDAPHONE" 
-                  className="w-full h-full p-8 object-contain animate-pulse-slow drop-shadow-2xl hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              
-              {/* Texto informativo abaixo */}
-              <div className="mt-6 text-center space-y-2">
-                <p className="text-2xl font-bold text-bp-gold">IRON FORCE</p>
-                <p className="text-sm text-bp-gold-light/80">
-                  Camada ultrafina de nanotecnologia que preserva o design original do aparelho
-                </p>
-              </div>
-            </div>
+        {/* Trust indicators no rodapé */}
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-400 text-sm">
+          <div className="flex items-center gap-2">
+            <CheckCircle className="w-5 h-5 text-amber-400" />
+            <span>Certificado de qualidade</span>
+          </div>
+          <div className="w-1 h-1 rounded-full bg-slate-600"></div>
+          <div className="flex items-center gap-2">
+            <Shield className="w-5 h-5 text-amber-400" />
+            <span>Garantia de proteção</span>
+          </div>
+          <div className="w-1 h-1 rounded-full bg-slate-600"></div>
+          <div className="flex items-center gap-2">
+            <Award className="w-5 h-5 text-amber-400" />
+            <span>Tecnologia premium</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Como Funciona */}
       <section id="solucao" className="py-20 bg-gradient-to-b from-bp-white to-bp-gray-light">
