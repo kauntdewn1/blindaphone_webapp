@@ -129,33 +129,35 @@ export default function BlindaphoneV2() {
       {/* Animated gradient orbs */}
 
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(203,171,106,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(203,171,106,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(203,171,106,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(203,171,106,0.03)_1px,transparent_1px)] bg-[size:32px_32px] sm:bg-[size:64px_64px]"></div>
      
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+      {/* Elementos decorativos responsivos */}
+      <div className="absolute top-1/4 -left-24 sm:-left-48 w-48 h-48 sm:w-96 sm:h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 -right-24 sm:-right-48 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        {/* Badge flutuante no topo */}
-        <div className="flex justify-center mb-12 animate-bounce" style={{animationDuration: '3s'}}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-600/20 backdrop-blur-xl border border-amber-500/30 text-amber-400 px-6 py-3 rounded-full text-sm font-bold shadow-lg shadow-amber-500/20">
-            <Sparkles className="w-5 h-5 animate-spin" style={{animationDuration: '4s'}} />
-            Nanotecnologia Certificada • Revolução na Proteção
-            <Sparkles className="w-5 h-5 animate-spin" style={{animationDuration: '4s', animationDirection: 'reverse'}} />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        {/* Badge flutuante responsivo */}
+        <div className="flex justify-center mb-8 sm:mb-12 animate-bounce" style={{animationDuration: '3s'}}>
+          <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-600/20 backdrop-blur-xl border border-amber-500/30 text-amber-400 px-3 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-amber-500/20">
+            <Sparkles className="w-3 h-3 sm:w-5 sm:h-5 animate-spin" style={{animationDuration: '4s'}} />
+            <span className="hidden sm:inline">Nanotecnologia Certificada • Revolução na Proteção</span>
+            <span className="sm:hidden">Nanotecnologia Certificada</span>
+            <Sparkles className="w-3 h-3 sm:w-5 sm:h-5 animate-spin" style={{animationDuration: '4s', animationDirection: 'reverse'}} />
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 items-center">
           {/* Coluna esquerda - Produto em destaque MAIOR */}
-          <div className="lg:col-span-3 order-2 lg:order-1">
+          <div className="lg:col-span-3 order-1 lg:order-1">
             <div className="relative group">
               {/* Anel de luz rotativo */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500/30 via-yellow-500/30 to-amber-500/30 rounded-full blur-2xl animate-spin" style={{animationDuration: '8s'}}></div>
               
-              {/* Card do produto */}
-              <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-2xl rounded-3xl p-12 border border-amber-500/20 shadow-2xl">
+              {/* Card do produto responsivo */}
+              <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-12 border border-amber-500/20 shadow-2xl">
                 {/* Imagem DOMINANTE */}
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-yellow-600/20 rounded-2xl blur-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-yellow-600/20 rounded-xl sm:rounded-2xl blur-xl"></div>
                   <img 
                     src="/assets/images/IRON.png" 
                     alt="IRON FORCE" 
@@ -163,20 +165,20 @@ export default function BlindaphoneV2() {
                   />
                 </div>
                 
-                {/* Info rápida abaixo da imagem */}
-                <div className="mt-8 flex items-center justify-center gap-6 text-amber-400/80 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
+                {/* Info rápida abaixo da imagem - responsiva */}
+                <div className="mt-4 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-amber-400/80 text-xs sm:text-sm">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>100 aplicações</span>
                   </div>
-                  <div className="w-1 h-1 rounded-full bg-amber-400/50"></div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
+                  <div className="hidden sm:block w-1 h-1 rounded-full bg-amber-400/50"></div>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>Cura em 30min</span>
                   </div>
-                  <div className="w-1 h-1 rounded-full bg-amber-400/50"></div>
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4" />
+                  <div className="hidden sm:block w-1 h-1 rounded-full bg-amber-400/50"></div>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>Nanotecnologia</span>
                   </div>
                 </div>
@@ -185,29 +187,29 @@ export default function BlindaphoneV2() {
           </div>
 
           {/* Coluna direita - Conteúdo compacto e poderoso */}
-          <div className="lg:col-span-2 order-1 lg:order-2 text-white space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1]">
+          <div className="lg:col-span-2 order-2 lg:order-2 text-white space-y-4 sm:space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1]">
               Não é película.
-              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 animate-pulse">
+              <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 animate-pulse">
                 É IRON FORCE
               </span>
             </h1>
             
-            <p className="text-lg text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
               Proteção invisível que preserva o design original. Aplicação limpa, sem escorrer. Tecnologia que cura em 30 minutos.
             </p>
 
-            {/* CTAs empilhados */}
-            <div className="space-y-3 pt-4">
+            {/* CTAs empilhados - otimizados para touch */}
+            <div className="space-y-3 pt-2 sm:pt-4">
               <a 
                 href="#contato" 
-                className="block w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-900 px-8 py-5 rounded-2xl font-black text-xl text-center transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50"
+                className="block w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-900 px-6 sm:px-8 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-black text-lg sm:text-xl text-center transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 min-h-[48px] flex items-center justify-center"
               >
                 Comprar Agora • R$ 347
               </a>
               <a 
                 href="#aplicador" 
-                className="block w-full bg-slate-800/50 backdrop-blur-xl border-2 border-amber-500/30 hover:border-amber-500/60 text-amber-400 px-8 py-5 rounded-2xl font-bold text-lg text-center transition-all hover:bg-slate-800/70"
+                className="block w-full bg-slate-800/50 backdrop-blur-xl border-2 border-amber-500/30 hover:border-amber-500/60 text-amber-400 px-6 sm:px-8 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg text-center transition-all hover:bg-slate-800/70 min-h-[48px] flex items-center justify-center"
               >
                 Quero Ser Aplicador
               </a>
