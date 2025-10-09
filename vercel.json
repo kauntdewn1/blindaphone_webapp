@@ -11,11 +11,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "NEXT_PUBLIC_WHATSAPP_PHONE": "@whatsapp_phone",
-    "NEXT_PUBLIC_GA_ID": "@ga_id",
-    "NEXT_PUBLIC_FB_PIXEL_ID": "@fb_pixel_id",
-    "NEXT_PUBLIC_SITE_URL": "@site_url"
-  }
+  ]
 }

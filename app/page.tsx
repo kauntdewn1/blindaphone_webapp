@@ -124,72 +124,89 @@ export default function BlindaphoneV2() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 bg-gradient-navy rounded-3xl mx-4 mb-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 glass-card-dark text-bp-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-float">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32 overflow-hidden">
+        {/* Background com gradiente */}
+        <div className="absolute inset-0 bg-gradient-navy rounded-3xl mx-4"></div>
+        
+        {/* Elementos decorativos modernos */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-bp-gold/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-bp-gold/5 rounded-full blur-3xl"></div>
+        
+        <div className="relative grid lg:grid-cols-2 gap-16 items-center">
+          {/* Conteúdo de texto */}
+          <div className="text-white space-y-8">
+            <div className="inline-flex items-center gap-2 glass-card-dark text-bp-gold px-5 py-2.5 rounded-full text-sm font-semibold animate-float backdrop-blur-xl">
               <Award className="w-4 h-4 text-bp-gold" />
               Nanotecnologia Certificada
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-white">
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] text-white">
               Proteja smartphones com{' '}
-              <span className="text-gradient animate-glow">
+              <span className="text-gradient animate-glow block mt-2">
                 IRON FORCE
               </span>
             </h1>
             
-            <p className="mt-6 text-xl text-bp-gold-light/90 leading-relaxed">
-              Não é película, é Iron Force. Cura em até 30 minutos. Até 100 aplicações por frasco. Aplicação limpa — sem escorrer entre botões. Proteção que não esconde o design do aparelho.
+            <p className="text-xl md:text-2xl text-bp-gold-light/90 leading-relaxed max-w-xl">
+              Não é película, é Iron Force. Cura em até 30 minutos. Até 100 aplicações por frasco. Aplicação limpa — sem escorrer entre botões.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="#contato" 
-                className="btn-primary"
+                className="btn-primary group"
               >
                 Comprar Agora — R$ 347
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a 
                 href="#aplicador" 
-                className="glass-card-dark text-bp-gold border-bp-gold/30 hover:bg-bp-gold/10 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+                className="glass-card-dark text-bp-gold border-bp-gold/30 hover:bg-bp-gold/10 hover:border-bp-gold/50 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
               >
                 Quero Ser Aplicador
               </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
               {[
                 { icon: Shield, text: 'Nanotecnologia' },
                 { icon: Clock, text: 'Cura em 30min' },
                 { icon: Droplets, text: '100 aplicações' },
                 { icon: CheckCircle, text: 'Limpo e preciso' }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-bp-gold-light glass-card-dark px-3 py-2 rounded-lg">
-                  <item.icon className="w-5 h-5 text-bp-gold" />
-                  <span className="font-medium">{item.text}</span>
+                <div key={i} className="flex flex-col items-center gap-2 text-center text-sm text-bp-gold-light glass-card-dark px-4 py-4 rounded-xl hover:scale-105 transition-transform">
+                  <item.icon className="w-6 h-6 text-bp-gold" />
+                  <span className="font-semibold">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative animate-float">
-            <div className="glass-card rounded-3xl p-6 shadow-2xl">
-              <div className="bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/30 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30 min-h-[500px]">
-                <div className="absolute inset-0 bg-gradient-gold opacity-10"></div>
-                <div className="relative z-10 text-center text-bp-navy p-4">
-                  <img 
-                    src="/assets/images/IRON.png" 
-                    alt="IRON FORCE - BLINDAPHONE" 
-                    className="w-80 h-80 mx-auto mb-6 object-contain animate-pulse-slow"
-                  />
-                  <p className="text-lg font-bold text-bp-navy">IRON FORCE</p>
-                  <p className="text-sm text-bp-navy/70 mt-2">Não é película, é Iron Force</p>
-                </div>
+          {/* Card do produto com destaque na imagem */}
+          <div className="relative lg:scale-110 animate-float">
+            {/* Glow effect atrás da imagem */}
+            <div className="absolute inset-0 bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/20 rounded-3xl blur-2xl"></div>
+            
+            <div className="relative glass-card rounded-3xl p-8 shadow-2xl backdrop-blur-xl">
+              {/* Container da imagem com foco total */}
+              <div className="bg-gradient-to-br from-bp-gold/10 to-bp-gold-light/20 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30 aspect-square">
+                <div className="absolute inset-0 bg-gradient-gold opacity-5"></div>
+                
+                {/* Imagem em destaque */}
+                <img 
+                  src="/assets/images/IRON.png" 
+                  alt="IRON FORCE - BLINDAPHONE" 
+                  className="w-full h-full p-8 object-contain animate-pulse-slow drop-shadow-2xl hover:scale-110 transition-transform duration-700"
+                />
               </div>
-              <p className="mt-6 text-center text-sm text-bp-gold-light">
-                Camada ultrafina de nanotecnologia que preserva o design original do aparelho
-              </p>
+              
+              {/* Texto informativo abaixo */}
+              <div className="mt-6 text-center space-y-2">
+                <p className="text-2xl font-bold text-bp-gold">IRON FORCE</p>
+                <p className="text-sm text-bp-gold-light/80">
+                  Camada ultrafina de nanotecnologia que preserva o design original do aparelho
+                </p>
+              </div>
             </div>
           </div>
         </div>
