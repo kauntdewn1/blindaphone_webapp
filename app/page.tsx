@@ -174,17 +174,17 @@ export default function BlindaphoneV2() {
           </div>
 
           <div className="relative animate-float">
-            <div className="glass-card rounded-3xl p-8 shadow-2xl">
-              <div className="aspect-[3/4] bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/30 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30">
+            <div className="glass-card rounded-3xl p-6 shadow-2xl">
+              <div className="bg-gradient-to-br from-bp-gold/20 to-bp-gold-light/30 rounded-2xl flex items-center justify-center relative overflow-hidden border border-bp-gold/30 min-h-[500px]">
                 <div className="absolute inset-0 bg-gradient-gold opacity-10"></div>
-                <div className="relative z-10 text-center text-bp-navy p-8">
+                <div className="relative z-10 text-center text-bp-navy p-4">
                   <img 
                     src="/assets/images/IRON.png" 
                     alt="IRON FORCE - BLINDAPHONE" 
-                    className="w-48 h-48 mx-auto mb-4 object-contain animate-pulse-slow"
+                    className="w-80 h-80 mx-auto mb-6 object-contain animate-pulse-slow"
                   />
-                  <p className="text-sm font-semibold text-bp-navy">IRON FORCE</p>
-                  <p className="text-xs text-bp-navy/70 mt-2">Não é película, é Iron Force</p>
+                  <p className="text-lg font-bold text-bp-navy">IRON FORCE</p>
+                  <p className="text-sm text-bp-navy/70 mt-2">Não é película, é Iron Force</p>
                 </div>
               </div>
               <p className="mt-6 text-center text-sm text-bp-gold-light">
